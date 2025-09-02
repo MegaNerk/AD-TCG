@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dthx5sdffimru"]
+
+[ext_resource type="Texture2D" uid="uid://b2c4lfqi30qrc" path="res://Data/Assets/Art/Nethergear's Buttons/Rectangle Bordered/BorderIceGray.png" id="1_1y754"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_1y754")
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+expand_margin_bottom = 10.0
+modulate_color = Color(0.791999, 0.791999, 0.791999, 1)

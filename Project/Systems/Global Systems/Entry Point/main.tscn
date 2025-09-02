@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://6inqgjj50jtg"]
+
+[ext_resource type="Script" uid="uid://d3d4wmhje6wvn" path="res://Project/Systems/Global Systems/Entry Point/main.gd" id="1_vk2mc"]
+[ext_resource type="Texture2D" uid="uid://dirmo75br4llj" path="res://Data/Assets/Art/Sparks AD/After Dark Vampire by Gyrmorsh.png" id="2_d0jyx"]
+[ext_resource type="Texture2D" uid="uid://dyqdxplc7rg72" path="res://Data/Assets/Art/Sparks AD/After Dark Wraith by Gyrmorsh.png" id="3_mrhy5"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="4_cbw6i"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vk2mc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vampire" type="TextureRect" parent="CanvasLayer/Panel"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = -346.0
+offset_top = 251.0
+offset_right = 868.0
+offset_bottom = 1815.0
+texture = ExtResource("2_d0jyx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Wraith" type="TextureRect" parent="CanvasLayer/Panel"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 980.0
+offset_top = -2.0
+offset_right = 2430.0
+offset_bottom = 1557.0
+texture = ExtResource("3_mrhy5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="Top" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 128
+text = "After Dark TCG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Middle" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/Middle"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+script = ExtResource("4_cbw6i")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+script = ExtResource("4_cbw6i")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="DecksButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+text = "Decks"
+script = ExtResource("4_cbw6i")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Bottom" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
