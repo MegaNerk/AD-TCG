@@ -1,48 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5gm6dqhgba8a"]
+[gd_scene load_steps=7 format=3 uid="uid://c5gm6dqhgba8a"]
 
 [ext_resource type="Texture2D" uid="uid://dirmo75br4llj" path="res://Data/Assets/Art/Sparks AD/After Dark Vampire by Gyrmorsh.png" id="1_1frw7"]
-[ext_resource type="Shader" uid="uid://qqracj6vaooo" path="res://Project/Systems/Out of Game/Main Menu/main_menu_panel.gdshader" id="1_800vj"]
+[ext_resource type="Script" uid="uid://02ub034hhcye" path="res://Project/Systems/Out of Game/Main Menu/main_menu.gd" id="1_v8qlp"]
 [ext_resource type="Texture2D" uid="uid://dyqdxplc7rg72" path="res://Data/Assets/Art/Sparks AD/After Dark Wraith by Gyrmorsh.png" id="2_800vj"]
+[ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="2_v8qlp"]
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="3_sgkym"]
+[ext_resource type="StyleBox" uid="uid://cgx37wt70wmxu" path="res://Project/Systems/Global Systems/Style Boxes/Labels/major_label.tres" id="5_v8qlp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_800vj"]
-shader = ExtResource("1_800vj")
-
-[sub_resource type="Gradient" id="Gradient_800vj"]
-offsets = PackedFloat32Array(0.03, 0.99, 1)
-colors = PackedColorArray(0.977444, 0.447637, 0.377384, 1, 0.263856, 0.106671, 0.0226999, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sgkym"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v8qlp"]
-seamless_blend_skirt = 0.924
-color_ramp = SubResource("Gradient_800vj")
-noise = SubResource("FastNoiseLite_sgkym")
-
-[node name="Panel" type="Panel"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v8qlp")
 
-[node name="ShaderBG" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_800vj")
+[node name="LobbyBackground" parent="." instance=ExtResource("2_v8qlp")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("NoiseTexture2D_v8qlp")
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Vampire" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 0
-offset_left = -346.0
-offset_top = 251.0
-offset_right = 868.0
-offset_bottom = 1815.0
+offset_left = -373.0
+offset_top = 259.0
+offset_right = 841.0
+offset_bottom = 1823.0
 texture = ExtResource("1_1frw7")
 expand_mode = 1
 stretch_mode = 4
@@ -81,14 +66,27 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 alignment = 1
 
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Top"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = ExtResource("5_v8qlp")
 text = "After Dark TCG"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 
 [node name="Middle" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -127,3 +125,6 @@ metadata/_custom_type_script = "uid://40yovr3lwytr"
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/DecksButton" to="." method="_on_decks_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

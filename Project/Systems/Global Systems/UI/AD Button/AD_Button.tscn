@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="1_p3aae"]
 
 [node name="AdButton" type="Button"]
+size_flags_vertical = 4
 script = ExtResource("1_p3aae")
 
 [connection signal="button_down" from="." to="." method="_on_button_pressed"]

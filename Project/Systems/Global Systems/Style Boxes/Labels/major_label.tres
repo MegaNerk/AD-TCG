@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cgx37wt70wmxu"]
+
+[ext_resource type="Texture2D" uid="uid://c23opy1nfs8wh" path="res://Data/Assets/Art/Nethergear's Buttons/Rectangle/RectangleIceGray.png" id="1_8kyat"]
+
+[resource]
+texture = ExtResource("1_8kyat")
+modulate_color = Color(0.278431, 0.278431, 0.278431, 0.490196)

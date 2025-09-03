@@ -1,0 +1,164 @@
+[gd_scene load_steps=7 format=3 uid="uid://citbsv3phdp37"]
+
+[ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_d2c74"]
+[ext_resource type="Script" uid="uid://6c2ugkra3jrl" path="res://Project/Systems/Out of Game/Deck Viewer/deck_viewer.gd" id="1_sflq8"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="2_2n4yd"]
+[ext_resource type="StyleBox" uid="uid://b24ytrt6ws0bi" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel.tres" id="3_qmfq3"]
+[ext_resource type="Texture2D" uid="uid://bwowole6h44rp" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons02.png" id="4_e4d2d"]
+[ext_resource type="Texture2D" uid="uid://dt56t3blvnbp4" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons18.png" id="6_jkmu4"]
+
+[node name="DeckViewer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sflq8")
+
+[node name="LobbyBackground" parent="." instance=ExtResource("1_d2c74")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 128
+text = "Your Decks"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_qmfq3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_qmfq3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="SurvivorsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Survivors"
+icon = ExtResource("4_e4d2d")
+alignment = 0
+icon_alignment = 2
+script = ExtResource("2_2n4yd")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="ApocalypseButton2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Apocalypse"
+icon = ExtResource("6_jkmu4")
+alignment = 0
+icon_alignment = 2
+script = ExtResource("2_2n4yd")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Back"
+script = ExtResource("2_2n4yd")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_pressed"]

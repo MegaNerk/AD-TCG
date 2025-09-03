@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6inqgjj50jtg"]
+[gd_scene load_steps=4 format=3 uid="uid://6inqgjj50jtg"]
 
 [ext_resource type="Script" uid="uid://d3d4wmhje6wvn" path="res://Project/Systems/Global Systems/Entry Point/main.gd" id="1_vk2mc"]
 [ext_resource type="PackedScene" uid="uid://c5gm6dqhgba8a" path="res://Project/Systems/Out of Game/Main Menu/main_menu.tscn" id="2_d0jyx"]
+[ext_resource type="PackedScene" uid="uid://citbsv3phdp37" path="res://Project/Systems/Out of Game/Deck Viewer/deck_viewer.tscn" id="3_mrhy5"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -15,3 +16,6 @@ script = ExtResource("1_vk2mc")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_d0jyx")]
+
+[node name="DeckViewer" parent="CanvasLayer" instance=ExtResource("3_mrhy5")]
+visible = false
