@@ -9,13 +9,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 25
 columns = 2
 
-[node name="DeckEntry" parent="GridContainer" instance=ExtResource("1_hh6ie")]
+[node name="DeckEntry" parent="CenterContainer/GridContainer" instance=ExtResource("1_hh6ie")]
 layout_mode = 2

@@ -12,6 +12,7 @@ offset_right = 400.0
 offset_bottom = 300.0
 size_flags_horizontal = 3
 script = ExtResource("1_0qkk4")
+label_text = "Create Deck"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +55,7 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Deck Name"
+text = "Create Deck"
 horizontal_alignment = 1
 vertical_alignment = 1
 

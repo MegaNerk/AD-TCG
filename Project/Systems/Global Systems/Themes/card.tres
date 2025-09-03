@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://badjixmse8kc8"]
+
+[ext_resource type="StyleBox" uid="uid://hys8yiefbxqu" path="res://Project/Systems/Global Systems/Style Boxes/Cards/card_bg.tres" id="1_l72lo"]
+[ext_resource type="StyleBox" uid="uid://coj1b4scfjvhq" path="res://Project/Systems/Global Systems/Style Boxes/style_box_empty.tres" id="2_8lly8"]
+[ext_resource type="StyleBox" uid="uid://bxc3x0k1ewopq" path="res://Project/Systems/Global Systems/Style Boxes/Cards/card_text.tres" id="3_7wf2d"]
+
+[resource]
+Label/constants/outline_size = 5
+Panel/styles/panel = ExtResource("1_l72lo")
+RichTextLabel/constants/outline_size = 5
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/styles/background = ExtResource("3_7wf2d")
+RichTextLabel/styles/fill = ExtResource("3_7wf2d")
+RichTextLabel/styles/focus = ExtResource("2_8lly8")
+RichTextLabel/styles/normal = ExtResource("3_7wf2d")

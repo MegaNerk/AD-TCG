@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=2 format=3 uid="uid://bemqxqyy52bjd"]
+
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card resource/card_content.gd" id="1_ooviv"]
+
+[resource]
+script = ExtResource("1_ooviv")
+name = ""
+body = ""
+faction = 0
+type = 0
+fuel_cost = 0
+weapons_cost = 0
+medicine_cost = 0
+food_cost = 0
