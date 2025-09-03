@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://citbsv3phdp37"]
+[gd_scene load_steps=8 format=3 uid="uid://citbsv3phdp37"]
 
 [ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_d2c74"]
 [ext_resource type="Script" uid="uid://6c2ugkra3jrl" path="res://Project/Systems/Out of Game/Deck Viewer/deck_viewer.gd" id="1_sflq8"]
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="2_2n4yd"]
 [ext_resource type="StyleBox" uid="uid://b24ytrt6ws0bi" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel.tres" id="3_qmfq3"]
 [ext_resource type="Texture2D" uid="uid://bwowole6h44rp" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons02.png" id="4_e4d2d"]
+[ext_resource type="PackedScene" uid="uid://dclmjp3gfm2cc" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Grid/deck_grid.tscn" id="4_pscjx"]
 [ext_resource type="Texture2D" uid="uid://dt56t3blvnbp4" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons18.png" id="6_jkmu4"]
 
 [node name="DeckViewer" type="Control"]
@@ -80,6 +81,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DeckGrid" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer" instance=ExtResource("4_pscjx")]
+layout_mode = 2
 
 [node name="Spacer2" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
