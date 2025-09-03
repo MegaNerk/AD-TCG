@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="sound_entry" load_steps=2 format=3 uid="uid://co1am8stpt4y8"]
+
+[ext_resource type="Script" uid="uid://evraspscc64p" path="res://Project/Systems/Global Systems/Autoloads/Audio/Audio Resources/sound_entry.gd" id="1_u8xkh"]
+
+[resource]
+script = ExtResource("1_u8xkh")
+name = ""

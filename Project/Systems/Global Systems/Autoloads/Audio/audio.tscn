@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbuaiim5yykao"]
+
+[ext_resource type="Script" uid="uid://cv46pokmv7jx1" path="res://Project/Systems/Global Systems/Autoloads/Audio/audio_manager.gd" id="1_5d66u"]
+[ext_resource type="Script" uid="uid://evraspscc64p" path="res://Project/Systems/Global Systems/Autoloads/Audio/Audio Resources/sound_entry.gd" id="2_djt2q"]
+[ext_resource type="AudioStream" uid="uid://mingolm6kje2" path="res://Data/Assets/Sounds/Bmaczero/94122__bmaczero__singlebullet1.wav" id="3_5y6rq"]
+[ext_resource type="AudioStream" uid="uid://daem4e2rqmuon" path="res://Data/Assets/Sounds/Music/One Man Symphony/After the Disaster/One Man Symphony - After The Disaster (Free) - 03 Night Time Scavenge II (Loops).mp3" id="4_5y6rq"]
+
+[sub_resource type="Resource" id="Resource_0wfnw"]
+script = ExtResource("2_djt2q")
+name = "Button_Clicked"
+audio = ExtResource("3_5y6rq")
+metadata/_custom_type_script = "uid://evraspscc64p"
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_5d66u")
+all_sounds = Array[ExtResource("2_djt2q")]([SubResource("Resource_0wfnw")])
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5y6rq")
+pitch_scale = 0.75
+autoplay = true
+parameters/looping = true
+
+[node name="SFXPool" type="Node" parent="."]
+
+[node name="SFXPlayer1" type="AudioStreamPlayer" parent="SFXPool"]
+
+[node name="SFXPlayer2" type="AudioStreamPlayer" parent="SFXPool"]
+
+[node name="SFXPlayer3" type="AudioStreamPlayer" parent="SFXPool"]
+
+[node name="SFXPlayer4" type="AudioStreamPlayer" parent="SFXPool"]

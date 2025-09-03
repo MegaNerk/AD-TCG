@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beis0s6nqpb15"
+path="res://.godot/imported/One Man Symphony - After The Disaster (Free) - 02 Night Time Scavenge I (Loops).mp3-cc8c0c55305b66e2c41785cdd0b89857.mp3str"
+
+[deps]
+
+source_file="res://Data/Assets/Sounds/Music/One Man Symphony/After the Disaster/One Man Symphony - After The Disaster (Free) - 02 Night Time Scavenge I (Loops).mp3"
+dest_files=["res://.godot/imported/One Man Symphony - After The Disaster (Free) - 02 Night Time Scavenge I (Loops).mp3-cc8c0c55305b66e2c41785cdd0b89857.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
