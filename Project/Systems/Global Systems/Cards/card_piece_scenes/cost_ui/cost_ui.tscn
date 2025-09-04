@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvn0vvvuel4xm"]
+
+[ext_resource type="Script" uid="uid://p07msuqkpmn6" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.gd" id="1_f1va5"]
+[ext_resource type="PackedScene" uid="uid://bd1hed58w4mb8" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/Cost Icon/cost_icon.tscn" id="2_kpyen"]
+[ext_resource type="Texture2D" uid="uid://0wwf0x1dyuke" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons13.png" id="3_3n6tx"]
+[ext_resource type="Texture2D" uid="uid://roy66qrorumb" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons10.png" id="3_shod6"]
+
+[node name="CostUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1va5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="CostIcon" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
+layout_mode = 2
+
+[node name="CostIcon2" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
+layout_mode = 2
+my_icon = ExtResource("3_shod6")
+
+[node name="CostIcon3" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
+layout_mode = 2
+my_icon = ExtResource("3_3n6tx")
+
+[node name="CostIcon4" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
+layout_mode = 2
+my_icon = ExtResource("3_3n6tx")

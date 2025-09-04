@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://blwoedkw6uadl"]
+
+[ext_resource type="Texture2D" uid="uid://bfb5si7jxrtoj" path="res://Data/Assets/Art/Nethergear's Buttons/Rectangle Bordered/BorderGray.png" id="1_ol7u8"]
+
+[resource]
+texture = ExtResource("1_ol7u8")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0

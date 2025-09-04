@@ -13,7 +13,14 @@ shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="ResourceCard" type="TextureRect"]
+[node name="ResourceLayout" type="Control"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResourceCard" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_o68yr")
 custom_minimum_size = Vector2(300, 300)
 offset_right = 300.0
@@ -22,7 +29,7 @@ theme = ExtResource("1_vrpcb")
 texture = ExtResource("2_4stm2")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="ResourceCard"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,17 +37,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ResourceCard/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ResourceCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resource Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="ResourceCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_4stm2")

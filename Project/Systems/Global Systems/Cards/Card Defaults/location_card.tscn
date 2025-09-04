@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co43gnywkodm5"]
+[gd_scene load_steps=10 format=3 uid="uid://co43gnywkodm5"]
 
 [ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_nmjgs"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="2_j5sbs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="5_vibdm"]
 [ext_resource type="Texture2D" uid="uid://evadlelddbag" path="res://Data/Assets/Art/KennysIcons/skull.png" id="6_o4qwh"]
 [ext_resource type="Texture2D" uid="uid://cjxsn5enje1tn" path="res://Data/Assets/Art/KennysIcons/structure_wall.png" id="7_o4qwh"]
+[ext_resource type="PackedScene" uid="uid://bvn0vvvuel4xm" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.tscn" id="8_yx54k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmjgs"]
 shader = ExtResource("1_nmjgs")
@@ -16,16 +17,32 @@ shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="LocationCard" type="TextureRect"]
+[node name="LocationLayout" type="Control"]
+custom_minimum_size = Vector2(850, 725)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_j5sbs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LocationCard" type="TextureRect" parent="VBoxContainer"]
 material = SubResource("ShaderMaterial_nmjgs")
 custom_minimum_size = Vector2(700, 525)
-offset_right = 300.0
-offset_bottom = 300.0
+layout_mode = 2
 theme = ExtResource("2_j5sbs")
 texture = ExtResource("3_o4qwh")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LocationCard"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,21 +54,21 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LocationCard/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Location Name"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -59,29 +76,38 @@ texture = ExtResource("5_vibdm")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Spacer" type="Control" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="BodyText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="BodyText" type="RichTextLabel" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Spacer2" type="Control" parent="VBoxContainer/LocationCard/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="CombatIcons" parent="." instance=ExtResource("5_nmjgs")]
+[node name="CombatIcons" parent="VBoxContainer/LocationCard" instance=ExtResource("5_nmjgs")]
 layout_mode = 1
 atk_texture = ExtResource("6_o4qwh")
 def_texture = ExtResource("7_o4qwh")
 
-[connection signal="resized" from="MarginContainer/VBoxContainer/TextureRect" to="." method="update_image"]
+[node name="CostUI" parent="VBoxContainer/LocationCard" instance=ExtResource("8_yx54k")]
+layout_mode = 1
+
+[node name="BodyText" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 48
+text = "Card Text Here"
+
+[connection signal="resized" from="VBoxContainer/LocationCard/MarginContainer/VBoxContainer/TextureRect" to="VBoxContainer/LocationCard" method="update_image"]
