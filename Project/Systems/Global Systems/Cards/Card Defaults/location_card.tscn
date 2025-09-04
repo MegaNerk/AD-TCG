@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://co43gnywkodm5"]
+
+[ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_nmjgs"]
+[ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="2_j5sbs"]
+[ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="3_o4qwh"]
+[ext_resource type="PackedScene" uid="uid://c8qyqdtiasa7s" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/combat_icon/combat_icons.tscn" id="5_nmjgs"]
+[ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="5_vibdm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmjgs"]
+shader = ExtResource("1_nmjgs")
+shader_parameter/border_color = Color(0.01, 0.2, 0.01, 1)
+shader_parameter/inner_border_perc = 0.65
+shader_parameter/outer_border_perc = 1.0
+shader_parameter/color_sat = 0.15
+shader_parameter/max_border_strength = 0.9
+
+[node name="LocationCard" type="TextureRect"]
+material = SubResource("ShaderMaterial_nmjgs")
+custom_minimum_size = Vector2(700, 525)
+offset_right = 300.0
+offset_bottom = 300.0
+theme = ExtResource("2_j5sbs")
+texture = ExtResource("3_o4qwh")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Location Name"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("5_vibdm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="BodyText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="CombatIcons" parent="." instance=ExtResource("5_nmjgs")]
+layout_mode = 1
+anchors_preset = 12
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[connection signal="resized" from="MarginContainer/VBoxContainer/TextureRect" to="." method="update_image"]

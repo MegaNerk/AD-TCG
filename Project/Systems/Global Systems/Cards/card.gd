@@ -1,17 +1,26 @@
 @tool
-extends Panel
+extends Control
 
-@onready var name_label = $MarginContainer/VBoxContainer/Name
+@onready var name_label = $MarginContainer/VBoxContainer/HBoxContainer/Name
 @onready var image_slot = $MarginContainer/VBoxContainer/TextureRect
-@onready var body_text = $MarginContainer/VBoxContainer/RichTextLabel
 
 @export var card_data : card_content:
 	set(value):
 		card_data = value
-		sync_to_data()
+		load_layout()
 
-func sync_to_data():
-	pass
+var my_layout
 
-func resize_text():
+func _ready():
+	load_layout()
+
+func load_layout():
+	for child_ in get_children():
+		child_.queue_free()
+	
+	if card_data != null:
+		my_layout = card_data.layout.instantiate()
+		add_child(my_layout)
+
+func populate_layout():
 	pass

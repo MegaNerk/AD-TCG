@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bu5vbof04coor"]
+
+[ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="1_0pgcg"]
+
+[resource]
+script = ExtResource("1_0pgcg")
+cost = Array[int]([])

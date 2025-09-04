@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="card_content" load_steps=3 format=3 uid="uid://cdkdu8krr4lj6"]
 
 [ext_resource type="Texture2D" uid="uid://qjje2qo8svku" path="res://Data/Assets/Art/Sparks AD/Zombies_grapple_final.png" id="1_hbd0n"]
-[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card resource/card_content.gd" id="1_oyd5c"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_oyd5c"]
 
 [resource]
 script = ExtResource("1_oyd5c")

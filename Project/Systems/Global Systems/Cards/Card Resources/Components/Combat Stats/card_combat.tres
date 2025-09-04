@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfj7y2xxwiuhp"]
+
+[ext_resource type="Script" uid="uid://b21unhxgtoa8j" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Combat Stats/card_combat.gd" id="1_f8rl5"]
+
+[resource]
+script = ExtResource("1_f8rl5")
+atk = 0
+hp = 0

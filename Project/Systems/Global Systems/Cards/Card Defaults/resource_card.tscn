@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg1aayedfrahu"]
+
+[ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_kfrna"]
+[ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_vrpcb"]
+[ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="2_4stm2"]
+[ext_resource type="Texture2D" uid="uid://0wwf0x1dyuke" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons13.png" id="6_rsg8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o68yr"]
+shader = ExtResource("1_kfrna")
+shader_parameter/border_color = Color(0.100748, 0.151284, 0.2874, 1)
+shader_parameter/inner_border_perc = 0.65
+shader_parameter/outer_border_perc = 1.0
+shader_parameter/color_sat = 0.15
+shader_parameter/max_border_strength = 0.9
+
+[node name="ResourceCard" type="TextureRect"]
+material = SubResource("ShaderMaterial_o68yr")
+custom_minimum_size = Vector2(300, 400)
+offset_right = 300.0
+offset_bottom = 400.0
+theme = ExtResource("1_vrpcb")
+texture = ExtResource("2_4stm2")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resource Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_rsg8c")
+expand_mode = 1
+stretch_mode = 5
