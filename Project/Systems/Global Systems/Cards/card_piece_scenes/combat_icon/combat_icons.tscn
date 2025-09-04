@@ -6,19 +6,16 @@
 
 [node name="CombatIcons" type="Control" node_paths=PackedStringArray("atk_icon", "def_icon", "atk_label", "def_label")]
 layout_mode = 3
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 script = ExtResource("1_d6o8r")
-atk_icon = NodePath("HBoxContainer/VBoxContainer2/AtkIcon")
-def_icon = NodePath("HBoxContainer/VBoxContainer/DefIcon")
-atk_label = NodePath("HBoxContainer/VBoxContainer2/Label")
-def_label = NodePath("HBoxContainer/VBoxContainer/Label")
+atk_icon = NodePath("HBoxContainer/AtkPanel/VBoxContainer2/AtkIcon")
+def_icon = NodePath("HBoxContainer/DefPanel/VBoxContainer/DefIcon")
+atk_label = NodePath("HBoxContainer/AtkPanel/VBoxContainer2/Label")
+def_label = NodePath("HBoxContainer/DefPanel/VBoxContainer/Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -26,25 +23,36 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -64.0
+offset_top = -113.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="AtkPanel" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/AtkPanel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
 theme_override_constants/separation = 0
 
-[node name="AtkIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+[node name="AtkIcon" type="TextureRect" parent="HBoxContainer/AtkPanel/VBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_4xp8f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="HBoxContainer/AtkPanel/VBoxContainer2"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
@@ -54,21 +62,32 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="DefPanel" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/DefPanel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
 theme_override_constants/separation = 0
 
-[node name="DefIcon" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="DefIcon" type="TextureRect" parent="HBoxContainer/DefPanel/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("3_k5ywa")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/DefPanel/VBoxContainer"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1

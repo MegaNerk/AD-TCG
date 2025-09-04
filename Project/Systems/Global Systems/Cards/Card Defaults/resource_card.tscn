@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_kfrna"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_vrpcb"]
 [ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="2_4stm2"]
-[ext_resource type="Texture2D" uid="uid://0wwf0x1dyuke" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons13.png" id="6_rsg8c"]
+[ext_resource type="Texture2D" uid="uid://dwo16correkk6" path="res://Data/Assets/Art/Sparks AD/Logo.png" id="4_4stm2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o68yr"]
 shader = ExtResource("1_kfrna")
@@ -15,9 +15,9 @@ shader_parameter/max_border_strength = 0.9
 
 [node name="ResourceCard" type="TextureRect"]
 material = SubResource("ShaderMaterial_o68yr")
-custom_minimum_size = Vector2(300, 400)
+custom_minimum_size = Vector2(300, 300)
 offset_right = 300.0
-offset_bottom = 400.0
+offset_bottom = 300.0
 theme = ExtResource("1_vrpcb")
 texture = ExtResource("2_4stm2")
 expand_mode = 1
@@ -43,6 +43,6 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("6_rsg8c")
+texture = ExtResource("4_4stm2")
 expand_mode = 1
 stretch_mode = 5

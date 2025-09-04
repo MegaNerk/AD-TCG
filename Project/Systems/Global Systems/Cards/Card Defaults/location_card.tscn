@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://co43gnywkodm5"]
+[gd_scene load_steps=9 format=3 uid="uid://co43gnywkodm5"]
 
 [ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_nmjgs"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="2_j5sbs"]
 [ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="3_o4qwh"]
 [ext_resource type="PackedScene" uid="uid://c8qyqdtiasa7s" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/combat_icon/combat_icons.tscn" id="5_nmjgs"]
 [ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="5_vibdm"]
+[ext_resource type="Texture2D" uid="uid://evadlelddbag" path="res://Data/Assets/Art/KennysIcons/skull.png" id="6_o4qwh"]
+[ext_resource type="Texture2D" uid="uid://cjxsn5enje1tn" path="res://Data/Assets/Art/KennysIcons/structure_wall.png" id="7_o4qwh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmjgs"]
 shader = ExtResource("1_nmjgs")
@@ -30,6 +32,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -54,6 +60,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -74,9 +81,7 @@ size_flags_stretch_ratio = 0.15
 
 [node name="CombatIcons" parent="." instance=ExtResource("5_nmjgs")]
 layout_mode = 1
-anchors_preset = 12
-offset_left = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+atk_texture = ExtResource("6_o4qwh")
+def_texture = ExtResource("7_o4qwh")
 
 [connection signal="resized" from="MarginContainer/VBoxContainer/TextureRect" to="." method="update_image"]

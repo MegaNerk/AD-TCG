@@ -4,6 +4,16 @@ class_name combat_icons
 
 enum ICON_TYPE {CHAOS, ORDER, ATK, HP}
 
+@export var atk_texture : Texture:
+	set(value):
+		atk_texture = value
+		update_atk_icon(atk_texture)
+
+@export var def_texture : Texture:
+	set(value):
+		def_texture = value
+		update_def_icon(def_texture)
+
 @export var atk_value : int:
 	set(value):
 		atk_value = value
@@ -24,3 +34,9 @@ func update_atk(new_int):
 
 func update_def(new_int):
 	def_label.text = str(new_int)
+
+func update_atk_icon(new_tex):
+	atk_icon.texture = new_tex
+
+func update_def_icon(new_tex):
+	def_icon.texture = new_tex
