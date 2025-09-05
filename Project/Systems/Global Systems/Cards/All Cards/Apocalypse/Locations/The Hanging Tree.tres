@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=9 format=3 uid="uid://txrirfpxordn"]
+
+[ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="1_7yaal"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_qaxcr"]
+[ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="2_6jtra"]
+[ext_resource type="Script" uid="uid://ykujcr4l00h0" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Card Effect/card_effect.gd" id="3_6jtra"]
+[ext_resource type="Script" uid="uid://b21unhxgtoa8j" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Combat Stats/card_combat.gd" id="4_1yjuq"]
+
+[sub_resource type="Resource" id="Resource_1yjuq"]
+script = ExtResource("2_6jtra")
+cost = Array[int]([4, 7, 7])
+metadata/_custom_type_script = "uid://bsaydnm8ncdd7"
+
+[sub_resource type="Resource" id="Resource_r6trj"]
+script = ExtResource("3_6jtra")
+body_text = "When a Survivor dies here, other Survivors here take 1 damage."
+metadata/_custom_type_script = "uid://ykujcr4l00h0"
+
+[sub_resource type="Resource" id="Resource_olsci"]
+script = ExtResource("4_1yjuq")
+atk = 2
+hp = 6
+metadata/_custom_type_script = "uid://b21unhxgtoa8j"
+
+[resource]
+script = ExtResource("1_qaxcr")
+image = ExtResource("1_7yaal")
+name = "The Hanging Tree"
+faction = 1
+type = 3
+my_cost = SubResource("Resource_1yjuq")
+my_effect = SubResource("Resource_r6trj")
+my_stats = SubResource("Resource_olsci")
+metadata/_custom_type_script = "uid://cblg767ulpurt"

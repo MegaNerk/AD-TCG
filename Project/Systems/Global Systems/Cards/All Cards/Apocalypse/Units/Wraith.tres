@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="card_content" load_steps=7 format=3 uid="uid://dhjps83y8b762"]
+[gd_resource type="Resource" script_class="card_content" load_steps=9 format=3 uid="uid://dhjps83y8b762"]
 
 [ext_resource type="Texture2D" uid="uid://dyqdxplc7rg72" path="res://Data/Assets/Art/Sparks AD/After Dark Wraith by Gyrmorsh.png" id="1_s22k4"]
 [ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_ts2r4"]
 [ext_resource type="Script" uid="uid://ykujcr4l00h0" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Card Effect/card_effect.gd" id="2_ey1n2"]
 [ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="2_ukxbm"]
+[ext_resource type="Script" uid="uid://b21unhxgtoa8j" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Combat Stats/card_combat.gd" id="4_4g7u8"]
 
 [sub_resource type="Resource" id="Resource_4g7u8"]
 script = ExtResource("2_ukxbm")
-cost = Array[int]([4, 4, 0, 0])
+cost = Array[int]([4, 4, 4])
 metadata/_custom_type_script = "uid://bsaydnm8ncdd7"
 
 [sub_resource type="Resource" id="Resource_ukxbm"]
@@ -15,12 +16,19 @@ script = ExtResource("2_ey1n2")
 body_text = "Attack: Lower victim's ATK by 1"
 metadata/_custom_type_script = "uid://ykujcr4l00h0"
 
+[sub_resource type="Resource" id="Resource_jrt80"]
+script = ExtResource("4_4g7u8")
+atk = 2
+hp = 4
+metadata/_custom_type_script = "uid://b21unhxgtoa8j"
+
 [resource]
 script = ExtResource("1_ts2r4")
 image = ExtResource("1_s22k4")
 name = "Wraith"
-faction = 0
+faction = 1
 type = 1
 my_cost = SubResource("Resource_4g7u8")
 my_effect = SubResource("Resource_ukxbm")
+my_stats = SubResource("Resource_jrt80")
 metadata/_custom_type_script = "uid://cblg767ulpurt"

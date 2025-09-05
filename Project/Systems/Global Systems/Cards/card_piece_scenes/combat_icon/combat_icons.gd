@@ -40,3 +40,7 @@ func update_atk_icon(new_tex):
 
 func update_def_icon(new_tex):
 	def_icon.texture = new_tex
+
+func build(new_stats : card_combat):
+	update_atk(new_stats.atk)
+	update_def(new_stats.hp)

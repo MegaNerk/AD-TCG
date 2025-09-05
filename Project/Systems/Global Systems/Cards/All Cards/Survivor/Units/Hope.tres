@@ -1,12 +1,34 @@
-[gd_resource type="Resource" script_class="card_content" load_steps=3 format=3 uid="uid://nkqsi53lvmxd"]
+[gd_resource type="Resource" script_class="card_content" load_steps=9 format=3 uid="uid://nkqsi53lvmxd"]
 
 [ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_mjpt7"]
 [ext_resource type="Texture2D" uid="uid://qjje2qo8svku" path="res://Data/Assets/Art/Sparks AD/Zombies_grapple_final.png" id="1_vr0h2"]
+[ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="2_0ire6"]
+[ext_resource type="Script" uid="uid://ykujcr4l00h0" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Card Effect/card_effect.gd" id="3_2vask"]
+[ext_resource type="Script" uid="uid://b21unhxgtoa8j" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Combat Stats/card_combat.gd" id="4_6bb86"]
+
+[sub_resource type="Resource" id="Resource_2vask"]
+script = ExtResource("2_0ire6")
+cost = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://bsaydnm8ncdd7"
+
+[sub_resource type="Resource" id="Resource_6bb86"]
+script = ExtResource("3_2vask")
+body_text = "Arrival: Fully heal your units here"
+metadata/_custom_type_script = "uid://ykujcr4l00h0"
+
+[sub_resource type="Resource" id="Resource_lgi44"]
+script = ExtResource("4_6bb86")
+atk = 2
+hp = 3
+metadata/_custom_type_script = "uid://b21unhxgtoa8j"
 
 [resource]
 script = ExtResource("1_mjpt7")
 image = ExtResource("1_vr0h2")
 name = "Hope"
-faction = 1
+faction = 0
 type = 1
+my_cost = SubResource("Resource_2vask")
+my_effect = SubResource("Resource_6bb86")
+my_stats = SubResource("Resource_lgi44")
 metadata/_custom_type_script = "uid://cblg767ulpurt"
