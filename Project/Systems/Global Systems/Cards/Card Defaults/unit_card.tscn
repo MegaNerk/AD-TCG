@@ -1,29 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://co43gnywkodm5"]
+[gd_scene load_steps=8 format=3 uid="uid://ccviq8ruwwak0"]
 
-[ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_nmjgs"]
-[ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="2_j5sbs"]
-[ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="3_o4qwh"]
-[ext_resource type="PackedScene" uid="uid://c8qyqdtiasa7s" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/combat_icon/combat_icons.tscn" id="5_nmjgs"]
-[ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="5_vibdm"]
-[ext_resource type="Texture2D" uid="uid://evadlelddbag" path="res://Data/Assets/Art/KennysIcons/skull.png" id="6_o4qwh"]
-[ext_resource type="Texture2D" uid="uid://cjxsn5enje1tn" path="res://Data/Assets/Art/KennysIcons/structure_wall.png" id="7_o4qwh"]
-[ext_resource type="PackedScene" uid="uid://bvn0vvvuel4xm" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.tscn" id="8_yx54k"]
+[ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_6bfks"]
+[ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="2_03be6"]
+[ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="3_uur34"]
+[ext_resource type="Texture2D" uid="uid://dirmo75br4llj" path="res://Data/Assets/Art/Sparks AD/After Dark Vampire by Gyrmorsh.png" id="4_tg4wv"]
+[ext_resource type="PackedScene" uid="uid://c8qyqdtiasa7s" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/combat_icon/combat_icons.tscn" id="5_b08je"]
+[ext_resource type="PackedScene" uid="uid://bvn0vvvuel4xm" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.tscn" id="6_6do2y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmjgs"]
-shader = ExtResource("1_nmjgs")
+shader = ExtResource("2_03be6")
 shader_parameter/border_color = Color(0.01, 0.2, 0.01, 1)
 shader_parameter/inner_border_perc = 0.65
 shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="LocationLayout" type="Control"]
-custom_minimum_size = Vector2(850, 750)
+[node name="UnitLayout" type="Control"]
+custom_minimum_size = Vector2(500, 750)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("2_j5sbs")
+theme = ExtResource("1_6bfks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,10 +34,10 @@ theme_override_constants/separation = 0
 
 [node name="CardBG" type="TextureRect" parent="VBoxContainer"]
 material = SubResource("ShaderMaterial_nmjgs")
-custom_minimum_size = Vector2(700, 600)
+custom_minimum_size = Vector2(500, 575)
 layout_mode = 2
-theme = ExtResource("2_j5sbs")
-texture = ExtResource("3_o4qwh")
+theme = ExtResource("1_6bfks")
+texture = ExtResource("3_uur34")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CardBG"]
@@ -66,14 +64,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Location Name"
+text = "Unit Name"
 horizontal_alignment = 1
 
 [node name="CardArt" type="TextureRect" parent="VBoxContainer/CardBG/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-texture = ExtResource("5_vibdm")
+texture = ExtResource("4_tg4wv")
 expand_mode = 1
 stretch_mode = 6
 
@@ -97,12 +95,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="CombatIcons" parent="VBoxContainer/CardBG" instance=ExtResource("5_nmjgs")]
+[node name="CombatIcons" parent="VBoxContainer/CardBG" instance=ExtResource("5_b08je")]
 layout_mode = 1
-atk_texture = ExtResource("6_o4qwh")
-def_texture = ExtResource("7_o4qwh")
 
-[node name="CostUI" parent="VBoxContainer/CardBG" instance=ExtResource("8_yx54k")]
+[node name="CostUI" parent="VBoxContainer/CardBG" instance=ExtResource("6_6do2y")]
 layout_mode = 1
 
 [node name="BodyText" type="RichTextLabel" parent="VBoxContainer"]
