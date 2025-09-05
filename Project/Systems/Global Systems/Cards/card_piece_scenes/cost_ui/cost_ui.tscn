@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvn0vvvuel4xm"]
+[gd_scene load_steps=2 format=3 uid="uid://bvn0vvvuel4xm"]
 
 [ext_resource type="Script" uid="uid://p07msuqkpmn6" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.gd" id="1_f1va5"]
-[ext_resource type="PackedScene" uid="uid://bd1hed58w4mb8" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/Cost Icon/cost_icon.tscn" id="2_kpyen"]
-[ext_resource type="Texture2D" uid="uid://0wwf0x1dyuke" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons13.png" id="3_3n6tx"]
-[ext_resource type="Texture2D" uid="uid://roy66qrorumb" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons10.png" id="3_shod6"]
 
 [node name="CostUI" type="Control"]
 layout_mode = 3
@@ -26,18 +23,3 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 0
-
-[node name="CostIcon" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
-layout_mode = 2
-
-[node name="CostIcon2" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
-layout_mode = 2
-my_icon = ExtResource("3_shod6")
-
-[node name="CostIcon3" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
-layout_mode = 2
-my_icon = ExtResource("3_3n6tx")
-
-[node name="CostIcon4" parent="VBoxContainer" instance=ExtResource("2_kpyen")]
-layout_mode = 2
-my_icon = ExtResource("3_3n6tx")

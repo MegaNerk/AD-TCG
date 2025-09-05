@@ -4,7 +4,7 @@ extends Node
 @export var my_icon : Texture:
 	set(value):
 		my_icon = value
-		change_icon(my_icon)
+		call_deferred("change_icon", my_icon)
 
 @onready var my_tex_rect = $MarginContainer/TextureRect
 

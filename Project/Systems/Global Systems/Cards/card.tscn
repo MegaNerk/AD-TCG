@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://73p10jqk80b1" path="res://Project/Systems/Global Systems/Cards/card.gd" id="1_0xeft"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_a1ig8"]
-[ext_resource type="Resource" uid="uid://ds1vk7pvtp5b3" path="res://Project/Systems/Global Systems/Cards/Card Resources/Card Types/Resource/resource_resource.tres" id="3_k6m0f"]
+[ext_resource type="Resource" uid="uid://dhjps83y8b762" path="res://Project/Systems/Global Systems/Cards/All Cards/Apocalypse/Units/Wraith.tres" id="3_k6m0f"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
