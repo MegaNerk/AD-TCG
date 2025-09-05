@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd1jg2u8fy372"]
+[gd_scene load_steps=3 format=3 uid="uid://dd1jg2u8fy372"]
 
 [ext_resource type="Script" uid="uid://73p10jqk80b1" path="res://Project/Systems/Global Systems/Cards/card.gd" id="1_0xeft"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_a1ig8"]
-[ext_resource type="Resource" uid="uid://txrirfpxordn" path="res://Project/Systems/Global Systems/Cards/All Cards/Apocalypse/Locations/The Hanging Tree.tres" id="3_k6m0f"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_a1ig8")
 script = ExtResource("1_0xeft")
-card_data = ExtResource("3_k6m0f")

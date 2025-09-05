@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://co43gnywkodm5"]
+[gd_scene load_steps=11 format=3 uid="uid://co43gnywkodm5"]
 
 [ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_nmjgs"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="2_j5sbs"]
+[ext_resource type="Script" uid="uid://djrejphwtwot8" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_layout.gd" id="2_vibdm"]
 [ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="3_o4qwh"]
 [ext_resource type="PackedScene" uid="uid://c8qyqdtiasa7s" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/combat_icon/combat_icons.tscn" id="5_nmjgs"]
 [ext_resource type="Texture2D" uid="uid://oc2mqaoxlx3g" path="res://Data/Assets/Art/Sparks AD/hanged final.jpg" id="5_vibdm"]
@@ -17,13 +18,20 @@ shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="LocationLayout" type="Control"]
+[node name="LocationLayout" type="Control" node_paths=PackedStringArray("name_plate", "card_art_slot", "body_text_plate", "cost_slot", "combat_slot", "card_bg")]
 custom_minimum_size = Vector2(850, 750)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("2_j5sbs")
+script = ExtResource("2_vibdm")
+name_plate = NodePath("VBoxContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer/Name")
+card_art_slot = NodePath("VBoxContainer/CardBG/MarginContainer/VBoxContainer/CardArt")
+body_text_plate = NodePath("VBoxContainer/BodyText")
+cost_slot = NodePath("VBoxContainer/CardBG/CostUI")
+combat_slot = NodePath("VBoxContainer/CardBG/CombatIcons")
+card_bg = NodePath("VBoxContainer/CardBG")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

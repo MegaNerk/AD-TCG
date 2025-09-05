@@ -16,7 +16,7 @@ shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="UnitLayout" type="Control"]
+[node name="UnitLayout" type="Control" node_paths=PackedStringArray("name_plate", "card_art_slot", "body_text_plate", "cost_slot", "combat_slot", "card_bg")]
 custom_minimum_size = Vector2(500, 750)
 layout_mode = 3
 anchors_preset = 0
@@ -24,6 +24,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_6bfks")
 script = ExtResource("2_uur34")
+name_plate = NodePath("VBoxContainer/CardBG/MarginContainer/VBoxContainer/HBoxContainer/Name")
+card_art_slot = NodePath("VBoxContainer/CardBG/MarginContainer/VBoxContainer/CardArt")
+body_text_plate = NodePath("VBoxContainer/BodyText")
+cost_slot = NodePath("VBoxContainer/CardBG/CostUI")
+combat_slot = NodePath("VBoxContainer/CardBG/CombatIcons")
+card_bg = NodePath("VBoxContainer/CardBG")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

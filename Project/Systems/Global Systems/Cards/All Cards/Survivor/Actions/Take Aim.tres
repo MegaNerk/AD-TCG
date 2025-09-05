@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=7 format=3 uid="uid://c40s8ogc6bxkl"]
+
+[ext_resource type="Texture2D" uid="uid://dp8s1qyxts6m2" path="res://Data/Assets/Art/Sparks AD/JeKS_NE_Modern_DetatchedHandHoldsPistolWithProperGunControl_4-25x2-75_INB_Jeshields.png" id="1_6tr85"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_jnuli"]
+[ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="2_7vp64"]
+[ext_resource type="Script" uid="uid://ykujcr4l00h0" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Card Effect/card_effect.gd" id="3_p0vs5"]
+
+[sub_resource type="Resource" id="Resource_sei6k"]
+script = ExtResource("2_7vp64")
+cost = Array[int]([1])
+metadata/_custom_type_script = "uid://bsaydnm8ncdd7"
+
+[sub_resource type="Resource" id="Resource_lhex6"]
+script = ExtResource("3_p0vs5")
+body_text = "Deal 4 damage to a unit"
+metadata/_custom_type_script = "uid://ykujcr4l00h0"
+
+[resource]
+script = ExtResource("1_jnuli")
+image = ExtResource("1_6tr85")
+name = "Take Aim"
+faction = 0
+type = 2
+my_cost = SubResource("Resource_sei6k")
+my_effect = SubResource("Resource_lhex6")
+metadata/_custom_type_script = "uid://cblg767ulpurt"

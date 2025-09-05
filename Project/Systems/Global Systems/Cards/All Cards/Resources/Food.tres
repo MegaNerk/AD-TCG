@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=3 format=3 uid="uid://cgr8iaj7m8xxr"]
+
+[ext_resource type="Texture2D" uid="uid://cgwgta7tledoo" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons23.png" id="1_u2rhs"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_x76t0"]
+
+[resource]
+script = ExtResource("1_x76t0")
+image = ExtResource("1_u2rhs")
+name = "Food"
+faction = 0
+type = 0
+metadata/_custom_type_script = "uid://cblg767ulpurt"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg1aayedfrahu"]
+[gd_scene load_steps=7 format=3 uid="uid://dg1aayedfrahu"]
 
 [ext_resource type="Shader" uid="uid://p6ob7w4pt2lv" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_bg_shader.gdshader" id="1_kfrna"]
+[ext_resource type="Script" uid="uid://djrejphwtwot8" path="res://Project/Systems/Global Systems/Cards/Card Defaults/card_layout.gd" id="1_o68yr"]
 [ext_resource type="Theme" uid="uid://badjixmse8kc8" path="res://Project/Systems/Global Systems/Themes/card.tres" id="1_vrpcb"]
 [ext_resource type="Texture2D" uid="uid://bsv7f4l36e28w" path="res://Data/Assets/Art/Sparks AD/grunge-paper-background.jpg" id="2_4stm2"]
 [ext_resource type="Texture2D" uid="uid://dwo16correkk6" path="res://Data/Assets/Art/Sparks AD/Logo.png" id="4_4stm2"]
@@ -13,14 +14,18 @@ shader_parameter/outer_border_perc = 1.0
 shader_parameter/color_sat = 0.15
 shader_parameter/max_border_strength = 0.9
 
-[node name="ResourceLayout" type="Control"]
+[node name="ResourceLayout" type="Control" node_paths=PackedStringArray("name_plate", "card_art_slot", "card_bg")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_o68yr")
+name_plate = NodePath("CardBG/MarginContainer/VBoxContainer/Label")
+card_art_slot = NodePath("CardBG/MarginContainer/VBoxContainer/CardArt")
+card_bg = NodePath("CardBG")
 
-[node name="ResourceCard" type="TextureRect" parent="."]
+[node name="CardBG" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_o68yr")
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
@@ -33,7 +38,7 @@ theme = ExtResource("1_vrpcb")
 texture = ExtResource("2_4stm2")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ResourceCard"]
+[node name="MarginContainer" type="MarginContainer" parent="CardBG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,17 +46,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ResourceCard/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardBG/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Label" type="Label" parent="ResourceCard/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CardBG/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resource Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardArt" type="TextureRect" parent="ResourceCard/MarginContainer/VBoxContainer"]
+[node name="CardArt" type="TextureRect" parent="CardBG/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("4_4stm2")

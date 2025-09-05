@@ -9,7 +9,7 @@ signal content_changed
 @export var type : CARD_GLOBALS.CARD_TYPE:
 	set(value):
 		type = value
-		layout = CARD_GLOBALS.LAYOUTS_DICT[type]
+		layout = CARD_GLOBALS.GET_LAYOUT_BY_TYPE(type)
 
 @export var my_cost : card_cost
 @export var my_effect : card_effect

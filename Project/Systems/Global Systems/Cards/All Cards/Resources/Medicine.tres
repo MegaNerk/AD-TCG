@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=3 format=3 uid="uid://c4fvi3b1gl7jp"]
+
+[ext_resource type="Texture2D" uid="uid://u3vrxa7nxi8k" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons04.png" id="1_2y5c3"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_ew2v7"]
+
+[resource]
+script = ExtResource("1_ew2v7")
+image = ExtResource("1_2y5c3")
+name = "Medicine"
+faction = 0
+type = 0
+metadata/_custom_type_script = "uid://cblg767ulpurt"
