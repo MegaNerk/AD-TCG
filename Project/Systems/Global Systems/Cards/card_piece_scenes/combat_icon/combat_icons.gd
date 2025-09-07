@@ -29,11 +29,26 @@ enum ICON_TYPE {CHAOS, ORDER, ATK, HP}
 @export var atk_label : Label
 @export var def_label : Label
 
+var BASE_ATK : int
+var BASE_DEF : int
+
 func update_atk(new_int):
 	atk_label.text = str(new_int)
+	if new_int > BASE_ATK:
+		atk_label.add_theme_color_override("font_color", Color.GREEN)
+	elif new_int < BASE_ATK:
+		atk_label.add_theme_color_override("font_color", Color.RED)
+	else:
+		atk_label.remove_theme_color_override("font_color")
 
 func update_def(new_int):
 	def_label.text = str(new_int)
+	if new_int > BASE_DEF:
+		def_label.add_theme_color_override("font_color", Color.GREEN)
+	elif new_int < BASE_DEF:
+		def_label.add_theme_color_override("font_color", Color.RED)
+	else:
+		def_label.remove_theme_color_override("font_color")
 
 func update_atk_icon(new_tex):
 	atk_icon.texture = new_tex
@@ -42,5 +57,7 @@ func update_def_icon(new_tex):
 	def_icon.texture = new_tex
 
 func build(new_stats : card_combat):
-	update_atk(new_stats.atk)
-	update_def(new_stats.hp)
+	BASE_ATK = new_stats.atk
+	atk_value = new_stats.atk
+	BASE_DEF = new_stats.hp
+	def_value = new_stats.hp
