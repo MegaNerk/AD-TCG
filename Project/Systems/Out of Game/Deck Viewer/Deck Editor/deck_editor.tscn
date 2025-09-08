@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dglilqtolfk5h"]
 
 [ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_0tkn8"]
-[ext_resource type="PackedScene" uid="uid://cb365dct8typ5" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Card Entry/card_entry.tscn" id="2_06aw8"]
+[ext_resource type="Script" uid="uid://hry04ofisx6c" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/deck_editor.gd" id="1_leqkq"]
 [ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="2_6pbi7"]
 [ext_resource type="StyleBox" uid="uid://cb01ye2bk48f" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel_no_shadow.tres" id="3_leqkq"]
 
@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_leqkq")
 
 [node name="LobbyBackground" parent="." instance=ExtResource("1_0tkn8")]
 layout_mode = 1
@@ -98,12 +99,6 @@ vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
 
-[node name="CardEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
-[node name="CardEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
 [node name="ActionsBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -125,12 +120,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
-
-[node name="CardEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
-[node name="CardEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
 
 [node name="LocationsBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
 layout_mode = 2
@@ -154,12 +143,6 @@ vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
 
-[node name="CardEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
-[node name="CardEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
 [node name="ResourcesBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -181,9 +164,3 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
-
-[node name="CardEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2
-
-[node name="CardEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox" instance=ExtResource("2_06aw8")]
-layout_mode = 2

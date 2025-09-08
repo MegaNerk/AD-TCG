@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dclmjp3gfm2cc"]
+[gd_scene load_steps=3 format=3 uid="uid://dclmjp3gfm2cc"]
 
+[ext_resource type="Script" uid="uid://bfevrekaqbjp" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Grid/deck_grid.gd" id="1_00cga"]
 [ext_resource type="PackedScene" uid="uid://c4pptk46afmmj" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Entry/deck_entry.tscn" id="1_hh6ie"]
 
 [node name="DeckGrid" type="ScrollContainer"]
@@ -8,6 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_00cga")
+deck_entry_scene = ExtResource("1_hh6ie")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -22,3 +25,5 @@ columns = 2
 
 [node name="DeckEntry" parent="CenterContainer/GridContainer" instance=ExtResource("1_hh6ie")]
 layout_mode = 2
+
+[connection signal="deck_clicked" from="CenterContainer/GridContainer/DeckEntry" to="." method="_on_deck_entry_deck_clicked"]
