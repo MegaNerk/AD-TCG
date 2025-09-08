@@ -17,7 +17,7 @@ void vertex() {
 	else{
 		VERTEX.y -= get_surge_value() + 50.0;
 	}
-	
+
 	if (UV.x > 0.5){
 		VERTEX.x += get_surge_value() + 50.0;
 	} else{
@@ -27,9 +27,9 @@ void vertex() {
 
 void fragment() {
 	vec4 cur_color = texture(TEXTURE,UV);
-	
+
 	//cur_color.a -= get_intensity(cur_color);
-	
+
 	if (get_intensity(cur_color) > 0.4) {
 		cur_color.a = 0.0;
 	}

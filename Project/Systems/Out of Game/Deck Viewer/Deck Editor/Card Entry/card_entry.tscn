@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("4_0w5m2")
-text = "This card asvd a fsadasd a ad dfa sd"
+text = "This card"
 horizontal_alignment = 1
 vertical_alignment = 1
 
