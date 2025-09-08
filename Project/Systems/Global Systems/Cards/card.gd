@@ -95,4 +95,10 @@ func override_card_text(new_text : String):
 func reset_card_text():
 	my_layout.change_body_text(card_data.get_effect_text())
 	#endregion Card text
+
+func get_faction() -> CARD_GLOBALS.FACTION:
+	return card_data.get_faction()
+
+func get_type() -> CARD_GLOBALS.CARD_TYPE:
+	return card_data.get_type()
 #endregion Outside access
