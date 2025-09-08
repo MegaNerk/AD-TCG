@@ -18,8 +18,8 @@ shader_parameter/max_border_strength = 0.9
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 300.0
+offset_bottom = 300.0
 script = ExtResource("1_o68yr")
 name_plate = NodePath("CardBG/MarginContainer/VBoxContainer/Label")
 card_art_slot = NodePath("CardBG/MarginContainer/VBoxContainer/CardArt")
@@ -27,7 +27,6 @@ card_bg = NodePath("CardBG")
 
 [node name="CardBG" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_o68yr")
-custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

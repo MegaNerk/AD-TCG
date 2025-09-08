@@ -1,4 +1,5 @@
 extends Control
+class_name card
 
 @onready var name_label = $MarginContainer/VBoxContainer/HBoxContainer/Name
 @onready var image_slot = $MarginContainer/VBoxContainer/TextureRect
@@ -32,6 +33,9 @@ func load_layout():
 	my_cost = my_layout.cost_slot
 
 #region Outside access
+func get_card_name() -> String:
+	return card_data.get_card_name()
+
 	#region Combat stats
 #Returns this cards' atk value if it exists, otherwise returns 0
 func get_atk() -> int:
