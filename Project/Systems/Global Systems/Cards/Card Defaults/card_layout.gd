@@ -27,3 +27,14 @@ func set_up_card_layout(content : card_content):
 	if card_bg != null:
 		var border_color = CARD_GLOBALS.FACTION_COLORS.get(content.faction, Color.WHITE)
 		card_bg.material.set_shader_parameter("border_color", border_color)
+
+#region Outside access
+func change_body_text(new_text : String):
+	if body_text_plate != null:
+		body_text_plate.text = new_text
+
+func get_body_text() -> String:
+	if body_text_plate != null:
+		return body_text_plate.text
+	return ""
+#endregion
