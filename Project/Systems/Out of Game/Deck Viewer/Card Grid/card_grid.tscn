@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://4sk67ldw561l"]
+
+[ext_resource type="Script" uid="uid://cdk3ftk4dq2d8" path="res://Project/Systems/Out of Game/Deck Viewer/Card Grid/card_grid.gd" id="1_v6icy"]
+[ext_resource type="PackedScene" uid="uid://drrp4hqs34238" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Card Entry/card_grid_wrapper/card_grid_wrapper.tscn" id="2_qfbvg"]
+
+[node name="CardGrid" type="MarginContainer" node_paths=PackedStringArray("my_grid")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6icy")
+card_grid_wrapper_scene = ExtResource("2_qfbvg")
+my_grid = NodePath("ScrollContainer/GridContainer")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 4

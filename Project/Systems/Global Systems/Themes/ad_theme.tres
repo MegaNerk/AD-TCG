@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://e6ink1u0w5k1"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://e6ink1u0w5k1"]
 
 [ext_resource type="StyleBox" uid="uid://dthx5sdffimru" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_normal.tres" id="1_7pt70"]
 [ext_resource type="StyleBox" uid="uid://coj1b4scfjvhq" path="res://Project/Systems/Global Systems/Style Boxes/style_box_empty.tres" id="1_l6yet"]
@@ -7,6 +7,8 @@
 [ext_resource type="StyleBox" uid="uid://cc5mcu7gre2nx" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_pressed.tres" id="3_l6yet"]
 [ext_resource type="StyleBox" uid="uid://cgx37wt70wmxu" path="res://Project/Systems/Global Systems/Style Boxes/Labels/major_label.tres" id="5_1fyfa"]
 [ext_resource type="StyleBox" uid="uid://h8n1pg3uacqk" path="res://Project/Systems/Global Systems/Style Boxes/Panels/default_panel.tres" id="6_1fyfa"]
+[ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="7_mxnf0"]
+[ext_resource type="StyleBox" uid="uid://cb01ye2bk48f" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel_no_shadow.tres" id="8_87hqd"]
 
 [sub_resource type="GDScript" id="GDScript_l6yet"]
 
@@ -27,5 +29,7 @@ MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25
 MarginContainer/constants/margin_top = 25
 Panel/styles/panel = ExtResource("6_1fyfa")
+TabContainer/styles/panel = ExtResource("7_mxnf0")
+TabContainer/styles/tabbar_background = ExtResource("8_87hqd")
 VBoxContainer/constants/separation = 40
 script = SubResource("GDScript_l6yet")

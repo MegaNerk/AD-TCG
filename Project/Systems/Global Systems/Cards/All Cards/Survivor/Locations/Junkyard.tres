@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="card_content" load_steps=9 format=3 uid="uid://d4hjiqdnpv7c0"]
+
+[ext_resource type="Texture2D" uid="uid://chx6kvpc162y0" path="res://Data/Assets/Art/Sparks AD/JeKS_NE_Modern_Street View of Rundown Urban Neighborhood _8-50x4-25_IWB_Jeshields.png" id="1_2f738"]
+[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="1_elnin"]
+[ext_resource type="Script" uid="uid://bsaydnm8ncdd7" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Cost/card_cost.gd" id="2_rk3g1"]
+[ext_resource type="Script" uid="uid://ykujcr4l00h0" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Card Effect/card_effect.gd" id="3_c57fq"]
+[ext_resource type="Script" uid="uid://b21unhxgtoa8j" path="res://Project/Systems/Global Systems/Cards/Card Resources/Components/Combat Stats/card_combat.gd" id="4_rk3g1"]
+
+[sub_resource type="Resource" id="Resource_q3e1e"]
+script = ExtResource("2_rk3g1")
+cost = Array[int]([0, 0])
+metadata/_custom_type_script = "uid://bsaydnm8ncdd7"
+
+[sub_resource type="Resource" id="Resource_qleuv"]
+script = ExtResource("3_c57fq")
+body_text = "The player with more units here each turn adds 1 Resource to their stockpile"
+metadata/_custom_type_script = "uid://ykujcr4l00h0"
+
+[sub_resource type="Resource" id="Resource_c57fq"]
+script = ExtResource("4_rk3g1")
+atk = 1
+hp = 12
+metadata/_custom_type_script = "uid://b21unhxgtoa8j"
+
+[resource]
+script = ExtResource("1_elnin")
+image = ExtResource("1_2f738")
+name = "Junkyard"
+faction = 0
+type = 3
+my_cost = SubResource("Resource_q3e1e")
+my_effect = SubResource("Resource_qleuv")
+my_stats = SubResource("Resource_c57fq")
+metadata/_custom_type_script = "uid://cblg767ulpurt"

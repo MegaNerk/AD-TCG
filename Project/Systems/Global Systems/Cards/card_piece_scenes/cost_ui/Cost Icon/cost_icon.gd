@@ -6,7 +6,7 @@ extends Node
 		my_icon = value
 		call_deferred("change_icon", my_icon)
 
-@onready var my_tex_rect = $MarginContainer/TextureRect
+@export var my_tex_rect : TextureRect
 
 func _ready():
 	change_icon(my_icon)

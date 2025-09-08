@@ -4,7 +4,7 @@ class_name card_cost_ui
 
 var icon_scene = preload("res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/Cost Icon/cost_icon.tscn")
 
-@onready var my_box = $VBoxContainer
+@export var my_box : VBoxContainer
 var base_cost : card_cost
 
 func build(new_cost : card_cost):

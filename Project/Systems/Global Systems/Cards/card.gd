@@ -7,14 +7,15 @@ class_name card
 @export var card_data : card_content:
 	set(value):
 		card_data = value
+		load_layout()
 
 var my_layout : card_layout
 
 var my_combat_stats : combat_icons
 var my_cost : card_cost_ui
 
-func _init(new_data : card_content = card_data):
-	card_data = new_data
+#func _init(new_data : card_content = card_data):
+	#card_data = new_data
 
 func _ready():
 	load_layout()
@@ -31,6 +32,7 @@ func load_layout():
 	
 	my_combat_stats = my_layout.combat_slot
 	my_cost = my_layout.cost_slot
+	custom_minimum_size = my_layout.custom_minimum_size
 
 #region Outside access
 func get_card_name() -> String:
