@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dwo16correkk6" path="res://Data/Assets/Art/Sparks AD/Logo.png" id="4_4stm2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o68yr"]
+resource_local_to_scene = true
 shader = ExtResource("1_kfrna")
 shader_parameter/border_color = Color(0.100748, 0.151284, 0.2874, 1)
 shader_parameter/inner_border_perc = 0.65

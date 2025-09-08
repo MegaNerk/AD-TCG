@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvn0vvvuel4xm" path="res://Project/Systems/Global Systems/Cards/card_piece_scenes/cost_ui/cost_ui.tscn" id="6_cnyh0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmjgs"]
+resource_local_to_scene = true
 shader = ExtResource("2_d7nqv")
 shader_parameter/border_color = Color(0.01, 0.2, 0.01, 1)
 shader_parameter/inner_border_perc = 0.65

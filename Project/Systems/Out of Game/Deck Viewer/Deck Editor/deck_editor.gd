@@ -12,7 +12,9 @@ extends Control
 @export var all_resources : card_grid
 
 @export var test_card_set_units : Array[card_content]
+@export var test_card_set_actions : Array[card_content]
 @export var test_card_set_locations : Array[card_content]
+@export var test_card_set_resources : Array[card_content]
 
 func open_for_deck(new_deck : deck_list):
 	if new_deck == null:
@@ -21,5 +23,9 @@ func open_for_deck(new_deck : deck_list):
 func _ready():
 	for card_ in test_card_set_units:
 		all_units.add_card_entry(card_)
+	for card_ in test_card_set_actions:
+		all_actions.add_card_entry(card_)
 	for card_ in test_card_set_locations:
 		all_locations.add_card_entry(card_)
+	for card_ in test_card_set_resources:
+		all_resources.add_card_entry(card_)
