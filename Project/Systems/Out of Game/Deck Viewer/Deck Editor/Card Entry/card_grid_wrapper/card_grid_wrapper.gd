@@ -29,11 +29,11 @@ func take_card(new_card_content : card_content):
 func resize_card():
 	if wrapped_card == null:
 		return
-	var new_scale = (size.x - 20) / wrapped_card.size.x
+	var new_scale = (size.x - 30) / wrapped_card.size.x
 	var new_vec = Vector2(new_scale,new_scale)
-	wrapped_card.position = Vector2(10,10)
+	wrapped_card.position = Vector2(15,15)
 	wrapped_card.scale = new_vec
-	custom_minimum_size.y = (wrapped_card.size.y * new_scale) + 20
+	custom_minimum_size.y = (wrapped_card.size.y * new_scale) + 30
 
 func _on_mouse_enter():
 	mouse_hovering = true

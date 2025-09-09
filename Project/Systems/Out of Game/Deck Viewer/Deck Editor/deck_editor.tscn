@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dglilqtolfk5h"]
+[gd_scene load_steps=21 format=3 uid="uid://dglilqtolfk5h"]
 
 [ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_0tkn8"]
 [ext_resource type="Script" uid="uid://hry04ofisx6c" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/deck_editor.gd" id="1_leqkq"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://b53jbksk6djtt" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Magic.tres" id="15_eme5w"]
 [ext_resource type="Resource" uid="uid://de5mevkfycejc" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Hunger.tres" id="16_5l2rb"]
 [ext_resource type="PackedScene" uid="uid://ccprlc855e51" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Deck List UI/deck_list_ui.tscn" id="19_fqyme"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="20_s6iak"]
 
 [node name="DeckEditor" type="Control" node_paths=PackedStringArray("deck_list_box", "all_units", "all_actions", "all_locations", "all_resources")]
 layout_mode = 3
@@ -28,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_leqkq")
-deck_list_box = NodePath("MarginContainer/HBoxContainer/DeckListUI")
+deck_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/DeckListUI")
 all_units = NodePath("MarginContainer/HBoxContainer/TabContainer/Units")
 all_actions = NodePath("MarginContainer/HBoxContainer/TabContainer/Actions")
 all_locations = NodePath("MarginContainer/HBoxContainer/TabContainer/Locations")
@@ -79,13 +80,48 @@ metadata/_tab_index = 3
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.15
+size_flags_stretch_ratio = 0.05
 
-[node name="DeckListUI" parent="MarginContainer/HBoxContainer" instance=ExtResource("19_fqyme")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DeckListUI" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("19_fqyme")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(18, 175)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="DeckRename" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Deck Name"
+alignment = 1
+
+[node name="AD_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Save Deck"
+script = ExtResource("20_s6iak")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
 
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Units" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Actions" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Locations" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Resources" to="." method="on_card_clicked"]
-[connection signal="card_clicked" from="MarginContainer/HBoxContainer/DeckListUI" to="." method="on_entered_card_clicked"]
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/VBoxContainer/DeckListUI" to="." method="on_entered_card_clicked"]
