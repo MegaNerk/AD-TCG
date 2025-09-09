@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://drrp4hqs34238"]
+[gd_scene load_steps=4 format=3 uid="uid://drrp4hqs34238"]
 
 [ext_resource type="Script" uid="uid://b50bli0gwghtk" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Card Entry/card_grid_wrapper/card_grid_wrapper.gd" id="1_iitk7"]
 [ext_resource type="PackedScene" uid="uid://dd1jg2u8fy372" path="res://Project/Systems/Global Systems/Cards/card.tscn" id="2_nhvyo"]
+[ext_resource type="StyleBox" uid="uid://b77b7hgnw8m65" path="res://Project/Systems/Global Systems/Style Boxes/Panels/highlight.tres" id="3_nhvyo"]
 
-[node name="CardGridWrapper" type="Control"]
+[node name="CardGridWrapper" type="Control" node_paths=PackedStringArray("highlight_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,5 +15,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("1_iitk7")
 card_scene = ExtResource("2_nhvyo")
+highlight_panel = NodePath("Panel")
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_nhvyo")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exit"]
 [connection signal="resized" from="." to="." method="resize_card"]

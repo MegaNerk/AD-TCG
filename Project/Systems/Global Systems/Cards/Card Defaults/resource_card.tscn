@@ -21,6 +21,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 300.0
+mouse_filter = 1
 script = ExtResource("1_o68yr")
 name_plate = NodePath("CardBG/MarginContainer/VBoxContainer/Label")
 card_art_slot = NodePath("CardBG/MarginContainer/VBoxContainer/CardArt")
@@ -52,6 +53,7 @@ theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="CardBG/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 text = "Resource Name"
 horizontal_alignment = 1
 vertical_alignment = 1

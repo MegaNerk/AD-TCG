@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dglilqtolfk5h"]
+[gd_scene load_steps=20 format=3 uid="uid://dglilqtolfk5h"]
 
 [ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_0tkn8"]
 [ext_resource type="Script" uid="uid://hry04ofisx6c" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/deck_editor.gd" id="1_leqkq"]
-[ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="2_6pbi7"]
 [ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="2_msxad"]
 [ext_resource type="PackedScene" uid="uid://4sk67ldw561l" path="res://Project/Systems/Out of Game/Deck Viewer/Card Grid/card_grid.tscn" id="3_47tyw"]
-[ext_resource type="StyleBox" uid="uid://cb01ye2bk48f" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel_no_shadow.tres" id="3_leqkq"]
 [ext_resource type="Resource" uid="uid://dhjps83y8b762" path="res://Project/Systems/Global Systems/Cards/All Cards/Apocalypse/Units/Wraith.tres" id="3_ppgn0"]
 [ext_resource type="Resource" uid="uid://nkqsi53lvmxd" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Units/Hope.tres" id="4_aoxe4"]
 [ext_resource type="Resource" uid="uid://c40s8ogc6bxkl" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Actions/Take Aim.tres" id="5_b6d73"]
@@ -20,8 +18,9 @@
 [ext_resource type="Resource" uid="uid://q7lgs3qfy1dt" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Fear.tres" id="14_l2r4d"]
 [ext_resource type="Resource" uid="uid://b53jbksk6djtt" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Magic.tres" id="15_eme5w"]
 [ext_resource type="Resource" uid="uid://de5mevkfycejc" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Hunger.tres" id="16_5l2rb"]
+[ext_resource type="PackedScene" uid="uid://ccprlc855e51" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Deck List UI/deck_list_ui.tscn" id="19_fqyme"]
 
-[node name="DeckEditor" type="Control" node_paths=PackedStringArray("deck_list_box", "unit_list_box", "action_list_box", "location_list_box", "resource_list_box", "all_units", "all_actions", "all_locations", "all_resources")]
+[node name="DeckEditor" type="Control" node_paths=PackedStringArray("deck_list_box", "all_units", "all_actions", "all_locations", "all_resources")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,11 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_leqkq")
-deck_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox")
-unit_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox")
-action_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox")
-location_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox")
-resource_list_box = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox")
+deck_list_box = NodePath("MarginContainer/HBoxContainer/DeckListUI")
 all_units = NodePath("MarginContainer/HBoxContainer/TabContainer/Units")
 all_actions = NodePath("MarginContainer/HBoxContainer/TabContainer/Actions")
 all_locations = NodePath("MarginContainer/HBoxContainer/TabContainer/Locations")
@@ -86,135 +81,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 125)
+[node name="DeckListUI" parent="MarginContainer/HBoxContainer" instance=ExtResource("19_fqyme")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Deck List"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("2_6pbi7")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="DeckListBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="UnitsBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox"]
-custom_minimum_size = Vector2(275, 50)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_leqkq")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Units"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 1
-
-[node name="ActionsBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox"]
-custom_minimum_size = Vector2(275, 50)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_leqkq")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Actions"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 1
-
-[node name="LocationsBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox"]
-custom_minimum_size = Vector2(275, 50)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_leqkq")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Locations"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 1
-
-[node name="ResourcesBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox"]
-custom_minimum_size = Vector2(275, 50)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_leqkq")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Resources"
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 1
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Units" to="." method="on_card_clicked"]
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Actions" to="." method="on_card_clicked"]
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Locations" to="." method="on_card_clicked"]
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Resources" to="." method="on_card_clicked"]
+[connection signal="card_clicked" from="MarginContainer/HBoxContainer/DeckListUI" to="." method="on_entered_card_clicked"]

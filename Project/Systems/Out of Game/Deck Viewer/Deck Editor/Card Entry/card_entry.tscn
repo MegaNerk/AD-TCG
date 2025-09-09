@@ -6,13 +6,16 @@
 [ext_resource type="StyleBox" uid="uid://qmek03n6xa2y" path="res://Project/Systems/Global Systems/Style Boxes/Labels/major_label_no_cm.tres" id="4_0w5m2"]
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="5_bm1f6"]
 
-[node name="CardEntry" type="Control"]
+[node name="CardEntry" type="Control" node_paths=PackedStringArray("name_back_plate", "card_name_label", "count_label")]
 custom_minimum_size = Vector2(275, 50)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 250.0
 offset_bottom = 50.0
 script = ExtResource("1_ym1v0")
+name_back_plate = NodePath("Panel/HBoxContainer/Control")
+card_name_label = NodePath("Panel/HBoxContainer/Control/NameLabel")
+count_label = NodePath("Panel/HBoxContainer/TextureRect/MarginContainer/CountLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -80,4 +83,4 @@ flat = true
 script = ExtResource("5_bm1f6")
 metadata/_custom_type_script = "uid://40yovr3lwytr"
 
-[connection signal="button_down" from="AD_Button" to="." method="remove_copy"]
+[connection signal="pressed" from="AD_Button" to="." method="on_clicked"]

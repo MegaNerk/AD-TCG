@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccprlc855e51"]
+
+[ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="1_2norp"]
+[ext_resource type="Script" uid="uid://dehsjrnfot2au" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Deck List UI/deck_list_ui.gd" id="1_pfipm"]
+[ext_resource type="PackedScene" uid="uid://cb365dct8typ5" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Card Entry/card_entry.tscn" id="2_mf0wn"]
+[ext_resource type="StyleBox" uid="uid://cb01ye2bk48f" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel_no_shadow.tres" id="2_pfipm"]
+
+[node name="DeckListUI" type="VBoxContainer" node_paths=PackedStringArray("name_plate", "unit_list_box", "action_list_box", "location_list_box", "resource_list_box")]
+offset_right = 350.0
+offset_bottom = 500.0
+theme_override_constants/separation = 0
+script = ExtResource("1_pfipm")
+card_entry_scene = ExtResource("2_mf0wn")
+name_plate = NodePath("Panel2/MarginContainer/Label")
+unit_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox")
+action_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox")
+location_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox")
+resource_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox")
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Deck List"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_2norp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="DeckListBox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="UnitsBox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/DeckListBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pfipm")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Units"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="ActionsBox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/DeckListBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pfipm")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Actions"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="LocationsBox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/DeckListBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pfipm")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Locations"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="ResourcesBox" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/DeckListBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_pfipm")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/DeckListBox/ResourcesBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resources"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
