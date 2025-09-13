@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 AUDIO="*res://Project/Systems/Global Systems/Autoloads/Audio/audio.tscn"
+ALL_CARDS="*res://Project/Systems/Global Systems/Autoloads/Card Database/card_database.gd"
 
 [display]
 

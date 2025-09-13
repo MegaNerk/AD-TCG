@@ -24,3 +24,16 @@ func get_deck_name() -> String:
 
 func get_cards() -> Dictionary:
 	return cards
+
+#region Saving & Loading
+func make_savable_dict() -> Dictionary:
+	var output : Dictionary = {}
+	output["Name"] = deck_name
+	output["Cards"] = {}
+	for card_ in cards.keys():
+		output["Cards"][card_.get_card_name()] = cards[card_]
+	return output
+
+func load_from_saved_deck(saved_deck : Dictionary):
+	pass
+#endregion Saving & Loading
