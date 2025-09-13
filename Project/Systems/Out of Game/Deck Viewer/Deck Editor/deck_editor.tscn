@@ -1,23 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dglilqtolfk5h"]
+[gd_scene load_steps=6 format=3 uid="uid://dglilqtolfk5h"]
 
 [ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_0tkn8"]
 [ext_resource type="Script" uid="uid://hry04ofisx6c" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/deck_editor.gd" id="1_leqkq"]
-[ext_resource type="Script" uid="uid://cblg767ulpurt" path="res://Project/Systems/Global Systems/Cards/Card Resources/card_content.gd" id="2_msxad"]
 [ext_resource type="PackedScene" uid="uid://4sk67ldw561l" path="res://Project/Systems/Out of Game/Deck Viewer/Card Grid/card_grid.tscn" id="3_47tyw"]
-[ext_resource type="Resource" uid="uid://dhjps83y8b762" path="res://Project/Systems/Global Systems/Cards/All Cards/Apocalypse/Units/Wraith.tres" id="3_ppgn0"]
-[ext_resource type="Resource" uid="uid://nkqsi53lvmxd" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Units/Hope.tres" id="4_aoxe4"]
-[ext_resource type="Resource" uid="uid://c40s8ogc6bxkl" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Actions/Take Aim.tres" id="5_b6d73"]
-[ext_resource type="Resource" uid="uid://txrirfpxordn" path="res://Project/Systems/Global Systems/Cards/All Cards/Apocalypse/Locations/The Hanging Tree.tres" id="5_bt6ky"]
-[ext_resource type="Resource" uid="uid://bx17hbmnokpid" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Locations/Freeway.tres" id="5_fpo1e"]
-[ext_resource type="Resource" uid="uid://d4hjiqdnpv7c0" path="res://Project/Systems/Global Systems/Cards/All Cards/Survivor/Locations/Junkyard.tres" id="6_b6d73"]
-[ext_resource type="Resource" uid="uid://cbb2cmlas4uq4" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Fuel.tres" id="9_s6iak"]
-[ext_resource type="Resource" uid="uid://c4fvi3b1gl7jp" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Medicine.tres" id="10_5nqns"]
-[ext_resource type="Resource" uid="uid://cgr8iaj7m8xxr" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Food.tres" id="11_xy08c"]
-[ext_resource type="Resource" uid="uid://rtq7lg2qj0yq" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Weapons.tres" id="12_g3kto"]
-[ext_resource type="Resource" uid="uid://cbs80hugm2r7n" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Death.tres" id="13_41ofr"]
-[ext_resource type="Resource" uid="uid://q7lgs3qfy1dt" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Fear.tres" id="14_l2r4d"]
-[ext_resource type="Resource" uid="uid://b53jbksk6djtt" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Magic.tres" id="15_eme5w"]
-[ext_resource type="Resource" uid="uid://de5mevkfycejc" path="res://Project/Systems/Global Systems/Cards/All Cards/Resources/Hunger.tres" id="16_5l2rb"]
 [ext_resource type="PackedScene" uid="uid://ccprlc855e51" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Deck List UI/deck_list_ui.tscn" id="19_fqyme"]
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="20_s6iak"]
 
@@ -34,10 +19,6 @@ all_units = NodePath("MarginContainer/HBoxContainer/TabContainer/Units")
 all_actions = NodePath("MarginContainer/HBoxContainer/TabContainer/Actions")
 all_locations = NodePath("MarginContainer/HBoxContainer/TabContainer/Locations")
 all_resources = NodePath("MarginContainer/HBoxContainer/TabContainer/Resources")
-test_card_set_units = Array[ExtResource("2_msxad")]([ExtResource("4_aoxe4"), ExtResource("3_ppgn0")])
-test_card_set_actions = Array[ExtResource("2_msxad")]([ExtResource("5_b6d73")])
-test_card_set_locations = Array[ExtResource("2_msxad")]([ExtResource("5_fpo1e"), ExtResource("6_b6d73"), ExtResource("5_bt6ky")])
-test_card_set_resources = Array[ExtResource("2_msxad")]([ExtResource("9_s6iak"), ExtResource("10_5nqns"), ExtResource("11_xy08c"), ExtResource("12_g3kto"), ExtResource("13_41ofr"), ExtResource("14_l2r4d"), ExtResource("15_eme5w"), ExtResource("16_5l2rb")])
 
 [node name="LobbyBackground" parent="." instance=ExtResource("1_0tkn8")]
 layout_mode = 1

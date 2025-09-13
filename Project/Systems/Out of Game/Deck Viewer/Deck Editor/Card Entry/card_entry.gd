@@ -28,10 +28,10 @@ func set_count(new_count : int):
 	count_label.text = str(count)
 
 #region Text
-func set_entry_name(name : String):
-	if name == "":
-		name = "New Deck"
-	card_name_label.text = name
+func set_entry_name(new_name : String):
+	if new_name == "":
+		new_name = "New Deck"
+	card_name_label.text = new_name
 	call_deferred("fit_text")
 
 func fit_text():

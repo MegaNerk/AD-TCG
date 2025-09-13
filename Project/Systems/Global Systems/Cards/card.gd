@@ -1,9 +1,6 @@
 extends Control
 class_name card
 
-@onready var name_label = $MarginContainer/VBoxContainer/HBoxContainer/Name
-@onready var image_slot = $MarginContainer/VBoxContainer/TextureRect
-
 @export var card_data : card_content:
 	set(value):
 		card_data = value

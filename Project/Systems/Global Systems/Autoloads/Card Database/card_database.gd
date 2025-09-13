@@ -12,7 +12,7 @@ func _ready():
 
 func load_all_cards():
 	all_cards.clear()
-	var base_dir = DirAccess.open("res://Project/Systems/Global Systems/Cards/All Cards/")
+	var base_dir = DirAccess.open(default_path)
 	assert(base_dir, "Non-existent directory for card database")
 	load_cards_from_dir(default_path)
 
@@ -29,6 +29,6 @@ func load_cards_from_dir(path : String):
 				all_cards[next_card.get_card_name()] = next_card
 		next_file = dir.get_next()
 	dir.list_dir_end()
-		#Base case:
-		#Iterate through all resources, add them to the all_cards dict
-		#Recursive case:
+
+func get_all_cards() -> Dictionary:
+	return all_cards
