@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AUDIO="*res://Project/Systems/Global Systems/Autoloads/Audio/audio.tscn"
 ALL_CARDS="*res://Project/Systems/Global Systems/Autoloads/Card Database/card_database.gd"
+DECKS="*res://Project/Systems/Global Systems/Autoloads/Deck Manager/deck_manager.gd"
 
 [display]
 

@@ -1,7 +1,8 @@
 extends Node
 class_name deck_list
 
-var deck_name : String = ""
+var deck_name : String = "New Deck"
+var file_name : String
 var cards : Dictionary = {}#The cards in this deck - card_content : count
 
 func add_card(new_card : card_content):
@@ -35,5 +36,7 @@ func make_savable_dict() -> Dictionary:
 	return output
 
 func load_from_saved_deck(saved_deck : Dictionary):
-	pass
+	deck_name = saved_deck["Name"]
+	for card_name in saved_deck["Cards"].keys():
+		cards[ALL_CARDS.get_all_cards()[card_name]] = saved_deck["Cards"][card_name]
 #endregion Saving & Loading

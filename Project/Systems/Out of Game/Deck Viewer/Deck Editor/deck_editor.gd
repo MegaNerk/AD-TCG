@@ -11,7 +11,7 @@ var current_deck : deck_list = null
 
 func open_for_deck(new_deck : deck_list):
 	if new_deck == null:
-		new_deck = deck_list.new()
+		new_deck = DECKS.create_new_deck()
 	current_deck = new_deck
 	deck_list_box.this_deck = current_deck
 	deck_list_box.refresh_entries()
