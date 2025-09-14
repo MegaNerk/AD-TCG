@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(18, 175)
+custom_minimum_size = Vector2(18, 150)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel"]
@@ -88,16 +88,16 @@ layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="DeckRename" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-placeholder_text = "Deck Name"
-alignment = 1
-
 [node name="SaveButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Save Deck"
+script = ExtResource("20_s6iak")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
 script = ExtResource("20_s6iak")
 metadata/_custom_type_script = "uid://40yovr3lwytr"
 
@@ -107,3 +107,4 @@ metadata/_custom_type_script = "uid://40yovr3lwytr"
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Resources" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/VBoxContainer/DeckListUI" to="." method="on_entered_card_clicked"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/SaveButton" to="." method="on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="on_back_pressed"]

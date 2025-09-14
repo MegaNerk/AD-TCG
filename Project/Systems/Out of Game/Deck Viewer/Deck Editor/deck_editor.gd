@@ -30,6 +30,9 @@ func on_entered_card_clicked(card_data_ref):
 func on_save_pressed():
 	DECKS.update_deck(current_deck)
 
+func on_back_pressed():
+	queue_free()
+
 func populate_card_menu():
 	var all_cards = ALL_CARDS.get_all_cards()
 	for card_ in all_cards.values():
