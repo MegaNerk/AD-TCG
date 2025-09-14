@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dclmjp3gfm2cc" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Grid/deck_grid.tscn" id="4_pscjx"]
 [ext_resource type="Texture2D" uid="uid://dt56t3blvnbp4" path="res://Data/Assets/Art/Osmic/Separated/zombie_icons18.png" id="6_jkmu4"]
 
-[node name="DeckViewer" type="Control"]
+[node name="DeckViewer" type="Control" node_paths=PackedStringArray("my_deck_grid")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sflq8")
 deck_editor_scene = ExtResource("2_w8rm3")
+my_deck_grid = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/DeckGrid")
 
 [node name="LobbyBackground" parent="." instance=ExtResource("1_d2c74")]
 layout_mode = 1

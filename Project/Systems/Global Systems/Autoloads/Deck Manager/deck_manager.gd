@@ -1,6 +1,8 @@
 extends Node
 class_name deck_manager
 
+signal decks_loaded
+
 var deck_save_path = "user://decks/"
 
 var all_decks : Dictionary = {} #name : deck_list
@@ -23,6 +25,7 @@ func _load_decks():
 		all_decks[deck_entry.get_deck_name()] = deck_entry
 		next_file = dir.get_next()
 	dir.list_dir_end()
+	emit_signal("decks_loaded")
 
 func create_new_deck() -> deck_list:
 	DirAccess.make_dir_recursive_absolute(deck_save_path)

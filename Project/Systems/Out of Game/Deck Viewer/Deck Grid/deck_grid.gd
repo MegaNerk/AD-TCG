@@ -22,5 +22,10 @@ func remove_deck_entry(old_deck : deck_list):
 			entry_.queue_free()
 			break
 
+func clear_entries():
+	for entry_ in my_entries:
+		entry_.queue_free()
+	my_entries = []
+
 func _on_deck_entry_deck_clicked(deck):
 	emit_signal("deck_clicked", deck)

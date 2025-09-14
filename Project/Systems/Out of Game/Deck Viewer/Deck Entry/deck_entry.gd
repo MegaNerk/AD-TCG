@@ -1,5 +1,6 @@
 @tool
 extends Node
+class_name deck_entry
 
 signal deck_clicked(deck : deck_list)
 
