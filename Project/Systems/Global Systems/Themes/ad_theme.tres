@@ -24,6 +24,7 @@ Button/styles/normal = ExtResource("1_7pt70")
 Button/styles/pressed = ExtResource("3_l6yet")
 Label/constants/outline_size = 5
 Label/styles/normal = ExtResource("5_1fyfa")
+LineEdit/styles/normal = ExtResource("5_1fyfa")
 MarginContainer/constants/margin_bottom = 25
 MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25

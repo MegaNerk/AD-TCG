@@ -11,7 +11,7 @@ offset_bottom = 500.0
 theme_override_constants/separation = 0
 script = ExtResource("1_pfipm")
 card_entry_scene = ExtResource("2_mf0wn")
-name_plate = NodePath("Panel2/MarginContainer/Label")
+name_plate = NodePath("Panel2/MarginContainer/DeckName")
 unit_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/UnitsBox")
 action_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/ActionsBox")
 location_list_box = NodePath("Panel/MarginContainer/ScrollContainer/DeckListBox/LocationsBox")
@@ -29,12 +29,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel2/MarginContainer"]
+[node name="DeckName" type="LineEdit" parent="Panel2/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 1
 text = "Deck List"
-horizontal_alignment = 1
-vertical_alignment = 1
+placeholder_text = "Deck Name"
+alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(350, 0)
@@ -145,3 +144,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
+
+[connection signal="text_changed" from="Panel2/MarginContainer/DeckName" to="." method="on_name_text_changed"]

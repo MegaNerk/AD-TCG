@@ -5,7 +5,7 @@ signal card_clicked(card_ref : card_content)
 
 @export var card_entry_scene : PackedScene
 
-@export var name_plate : Label
+@export var name_plate : LineEdit
 
 @export var unit_list_box : VBoxContainer
 @export var action_list_box : VBoxContainer
@@ -43,3 +43,6 @@ func refresh_entries():
 
 func on_card_clicked(clicked_card : card_content):
 	emit_signal("card_clicked", clicked_card)
+
+func on_name_text_changed(new_text : String):
+	this_deck.change_name(new_text)
