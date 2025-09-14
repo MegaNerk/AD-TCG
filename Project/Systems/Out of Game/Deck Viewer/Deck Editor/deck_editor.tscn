@@ -94,7 +94,7 @@ size_flags_vertical = 3
 placeholder_text = "Deck Name"
 alignment = 1
 
-[node name="AD_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Save Deck"
@@ -106,3 +106,4 @@ metadata/_custom_type_script = "uid://40yovr3lwytr"
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Locations" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/TabContainer/Resources" to="." method="on_card_clicked"]
 [connection signal="card_clicked" from="MarginContainer/HBoxContainer/VBoxContainer/DeckListUI" to="." method="on_entered_card_clicked"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/SaveButton" to="." method="on_save_pressed"]

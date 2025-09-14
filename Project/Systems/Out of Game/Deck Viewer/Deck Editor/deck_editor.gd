@@ -26,7 +26,10 @@ func on_card_clicked(card_data_ref):
 func on_entered_card_clicked(card_data_ref):
 	current_deck.remove_card(card_data_ref)
 	deck_list_box.refresh_entries()
-	
+
+func on_save_pressed():
+	DECKS.update_deck(current_deck)
+
 func populate_card_menu():
 	var all_cards = ALL_CARDS.get_all_cards()
 	for card_ in all_cards.values():

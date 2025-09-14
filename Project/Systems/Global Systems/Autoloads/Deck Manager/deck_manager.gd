@@ -32,11 +32,9 @@ func create_new_deck() -> deck_list:
 	var new_deck = deck_list.new()
 	new_deck.change_name(get_unique_file_name(new_deck.get_deck_name()))
 	var deck_name = new_deck.get_deck_name()
+	new_deck.file_name = "%s.json" % [deck_name]
 	var new_save = FileAccess.open(deck_save_path + "%s.json" % [deck_name],FileAccess.WRITE)
-	var save_data : Dictionary = {
-		"Name" : new_deck.get_deck_name(),
-		"Cards" : new_deck.get_cards()
-	}
+	var save_data : Dictionary = new_deck.make_savable_dict()
 	new_save.store_string(JSON.stringify(save_data, "\t"))
 	new_save.close()
 	_load_decks()
@@ -53,10 +51,7 @@ func update_deck(deck_to_update : deck_list):
 		DirAccess.rename_absolute(old_deck_path, new_deck_path)
 		deck_to_update.file_name = "%s.json" %[new_name]
 	var deck_file = FileAccess.open(new_deck_path, FileAccess.WRITE)
-	var save_data : Dictionary = {
-		"Name" : deck_to_update.get_deck_name(),
-		"Cards" : deck_to_update.get_cards()
-	}
+	var save_data : Dictionary = deck_to_update.make_savable_dict()
 	deck_file.store_string(JSON.stringify(save_data, "\t"))
 	deck_file.close()
 	_load_decks()
