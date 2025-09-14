@@ -10,8 +10,9 @@ signal card_clicked(card_ref : card_content)
 
 var mouse_hovering : bool = false:
 	set(value):
+		if mouse_hovering != value:
+			highlight_panel.visible = value
 		mouse_hovering = value
-		highlight_panel.visible = value
 
 func _ready():
 	call_deferred("resize_card")

@@ -25,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_nhvyo")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_enter"]
