@@ -3,6 +3,7 @@ extends Node
 class_name deck_entry
 
 signal deck_clicked(deck : deck_list)
+signal deck_right_clicked(deck : deck_list)
 
 var my_deck : deck_list = null:
 	set(value):
@@ -24,5 +25,10 @@ func change_label_text(new_text : String):
 	if deck_label != null:
 		deck_label.text = new_text
 
-func _on_pressed():
-	emit_signal("deck_clicked", my_deck)
+func _on_ad_button_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				emit_signal("deck_clicked", my_deck)
+			MOUSE_BUTTON_RIGHT:
+				emit_signal("deck_right_clicked", my_deck)

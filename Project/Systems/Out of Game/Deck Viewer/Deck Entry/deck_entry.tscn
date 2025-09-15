@@ -61,8 +61,9 @@ vertical_alignment = 1
 
 [node name="AD_Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
+button_mask = 3
 flat = true
 script = ExtResource("3_gxv01")
 metadata/_custom_type_script = "uid://40yovr3lwytr"
 
-[connection signal="pressed" from="MarginContainer/AD_Button" to="." method="_on_pressed"]
+[connection signal="gui_input" from="MarginContainer/AD_Button" to="." method="_on_ad_button_gui_input"]

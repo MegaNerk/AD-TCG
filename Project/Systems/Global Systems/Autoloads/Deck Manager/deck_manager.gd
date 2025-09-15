@@ -40,6 +40,10 @@ func create_new_deck() -> deck_list:
 	_load_decks()
 	return new_deck
 
+func delete_deck(deck_to_delete : deck_list):
+	DirAccess.remove_absolute(deck_save_path + deck_to_delete.file_name)
+	_load_decks()
+
 func update_deck(deck_to_update : deck_list):
 	var old_deck_path : String = deck_save_path + deck_to_update.file_name
 	var new_deck_path : String = deck_save_path + "%s.json" %[deck_to_update.get_deck_name()]

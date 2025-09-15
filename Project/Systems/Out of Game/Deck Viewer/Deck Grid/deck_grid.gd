@@ -7,6 +7,7 @@ var my_entries : Array = []
 @onready var my_grid = $CenterContainer/GridContainer
 
 signal deck_clicked(deck : deck_list)
+signal deck_right_clicked(deck : deck_list)
 
 func create_deck_entry(new_deck : deck_list):
 	var new_entry = deck_entry_scene.instantiate()
@@ -14,6 +15,7 @@ func create_deck_entry(new_deck : deck_list):
 	my_grid.add_child(new_entry)
 	my_entries.append(new_entry)
 	new_entry.deck_clicked.connect(_on_deck_entry_deck_clicked)
+	new_entry.deck_right_clicked.connect(_on_deck_entry_deck_right_clicked)
 
 func remove_deck_entry(old_deck : deck_list):
 	for entry_ in my_entries:
@@ -29,3 +31,6 @@ func clear_entries():
 
 func _on_deck_entry_deck_clicked(deck):
 	emit_signal("deck_clicked", deck)
+
+func _on_deck_entry_deck_right_clicked(deck):
+	emit_signal("deck_right_clicked", deck)
