@@ -5,6 +5,7 @@ signal card_clicked(card_ref)
 @export var name_back_plate : Control
 @export var card_name_label : Label
 @export var count_label : Label
+@export var art_teaser : TextureRect
 
 var this_card : card_content
 var count : int = 0
@@ -13,6 +14,7 @@ func populate(entered_card : card_content):
 	this_card = entered_card
 	count = 1
 	set_entry_name(entered_card.get_card_name())
+	art_teaser.texture = this_card.get_image()
 	count_label.text = str(count)
 
 func add_copy():

@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb365dct8typ5"]
+[gd_scene load_steps=8 format=3 uid="uid://cb365dct8typ5"]
 
 [ext_resource type="Script" uid="uid://bkr0j0g3830qs" path="res://Project/Systems/Out of Game/Deck Viewer/Deck Editor/Card Entry/card_entry.gd" id="1_ym1v0"]
 [ext_resource type="Texture2D" uid="uid://ceqlygcgutnvk" path="res://Data/Assets/Art/KennysIcons/timer_0.png" id="2_0w5m2"]
 [ext_resource type="StyleBox" uid="uid://coj1b4scfjvhq" path="res://Project/Systems/Global Systems/Style Boxes/style_box_empty.tres" id="3_bm1f6"]
 [ext_resource type="StyleBox" uid="uid://qmek03n6xa2y" path="res://Project/Systems/Global Systems/Style Boxes/Labels/major_label_no_cm.tres" id="4_0w5m2"]
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="5_bm1f6"]
+[ext_resource type="Texture2D" uid="uid://qjje2qo8svku" path="res://Data/Assets/Art/Sparks AD/Zombies_grapple_final.png" id="5_ldxvw"]
 
-[node name="CardEntry" type="Control" node_paths=PackedStringArray("name_back_plate", "card_name_label", "count_label")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldxvw"]
+
+[node name="CardEntry" type="Control" node_paths=PackedStringArray("name_back_plate", "card_name_label", "count_label", "art_teaser")]
 custom_minimum_size = Vector2(275, 50)
 layout_mode = 3
 anchors_preset = 0
@@ -16,6 +19,7 @@ script = ExtResource("1_ym1v0")
 name_back_plate = NodePath("Panel/HBoxContainer/Control")
 card_name_label = NodePath("Panel/HBoxContainer/Control/NameLabel")
 count_label = NodePath("Panel/HBoxContainer/TextureRect/MarginContainer/CountLabel")
+art_teaser = NodePath("Panel/HBoxContainer/Control/MarginContainer/ArtTeaser")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -58,6 +62,25 @@ vertical_alignment = 1
 [node name="Control" type="Control" parent="Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="ArtTeaser" type="TextureRect" parent="Panel/HBoxContainer/Control/MarginContainer"]
+material = SubResource("ShaderMaterial_ldxvw")
+layout_mode = 2
+texture = ExtResource("5_ldxvw")
+expand_mode = 3
+stretch_mode = 6
 
 [node name="NameLabel" type="Label" parent="Panel/HBoxContainer/Control"]
 layout_mode = 1
