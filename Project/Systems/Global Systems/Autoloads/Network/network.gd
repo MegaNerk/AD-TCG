@@ -19,15 +19,15 @@ var steam_state : Dictionary = {}
 
 func _ready():
 	attempt_steam()
-	Steam.join_requested.connect(_on_lobby_join_requested)
-	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
+	#Steam.join_requested.connect(_on_lobby_join_requested)
+	#Steam.lobby_chat_update.connect(_on_lobby_chat_update)
 	Steam.lobby_created.connect(_on_lobby_created)
-	Steam.lobby_data_update.connect(_on_lobby_data_update)
-	Steam.lobby_invite.connect(_on_lobby_invite)
-	Steam.lobby_joined.connect(_on_lobby_joined)
-	Steam.lobby_match_list.connect(_on_lobby_match_list)
-	Steam.lobby_message.connect(_on_lobby_message)
-	Steam.persona_state_change.connect(_on_persona_change)
+	#Steam.lobby_data_update.connect(_on_lobby_data_update)
+	#Steam.lobby_invite.connect(_on_lobby_invite)
+	#Steam.lobby_joined.connect(_on_lobby_joined)
+	#Steam.lobby_match_list.connect(_on_lobby_match_list)
+	#Steam.lobby_message.connect(_on_lobby_message)
+	#Steam.persona_state_change.connect(_on_persona_change)
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
@@ -73,6 +73,7 @@ func _on_lobby_created(status : int, new_lobby_id : int):
 		#Establish steam as a backup packet relay in case of firewall issues
 		var relay_active : bool = Steam.allowP2PPacketRelay(true)
 		print("Packet relay backup status: %s" %relay_active)
+	else: print("Failed to create and join lobby - Error code: %s" %status)
 
 func _on_lobby_data_update():
 	pass
