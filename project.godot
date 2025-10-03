@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+NETWORK="*res://Project/Systems/Global Systems/Autoloads/Network/network.gd"
 AUDIO="*res://Project/Systems/Global Systems/Autoloads/Audio/audio.tscn"
 ALL_CARDS="*res://Project/Systems/Global Systems/Autoloads/Card Database/card_database.gd"
 DECKS="*res://Project/Systems/Global Systems/Autoloads/Deck Manager/deck_manager.gd"
@@ -35,3 +36,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 theme/custom="uid://e6ink1u0w5k1"
 theme/custom_font="uid://ctul4srh4s6l5"
+
+[steam]
+
+initialization/app_id=480
