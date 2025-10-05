@@ -1,0 +1,218 @@
+[gd_scene load_steps=7 format=3 uid="uid://drv6n1s3htx6m"]
+
+[ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_sm5tx"]
+[ext_resource type="Script" uid="uid://b4000vwrj8868" path="res://Project/Systems/Out of Game/Server Browser/server_browser.gd" id="1_yp21i"]
+[ext_resource type="StyleBox" uid="uid://b24ytrt6ws0bi" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel.tres" id="2_wq7fb"]
+[ext_resource type="PackedScene" uid="uid://cxivtmqykqeik" path="res://Project/Systems/Out of Game/Server Browser/Server Entry/server_entry.tscn" id="3_yp21i"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="5_hxr5i"]
+[ext_resource type="PackedScene" uid="uid://clkhmkarvolex" path="res://Project/Systems/Global Systems/UI/Popups/Confirm Popup/confirm_popup.tscn" id="6_yg2sb"]
+
+[node name="ServerBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yp21i")
+
+[node name="LobbyBackground" parent="." instance=ExtResource("1_sm5tx")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Server Browser"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_wq7fb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="LobbyNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Lobby Name"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GamemodeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Gamemode"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayersLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Players"
+
+[node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HostLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Host Name"
+
+[node name="Spacer4" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PasswordLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Has Password"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="ServerEntry" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry2" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry3" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry4" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry5" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry6" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry7" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry8" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="ServerEntry9" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_yp21i")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="AD_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create Lobby"
+script = ExtResource("5_hxr5i")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="AD_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("5_hxr5i")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="ConfirmPopup" parent="." instance=ExtResource("6_yg2sb")]
+visible = false
+layout_mode = 1
+prompt_text = "Join [Server Name]?"

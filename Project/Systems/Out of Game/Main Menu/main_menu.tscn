@@ -98,10 +98,17 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/Middle/VBoxContainer"]
+[node name="SingleplayerButton" type="Button" parent="MarginContainer/VBoxContainer/Middle/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Play Game"
+text = "Singleplayer"
+script = ExtResource("3_sgkym")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="MultiplayerButton" type="Button" parent="MarginContainer/VBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Multiplayer"
 script = ExtResource("3_sgkym")
 metadata/_custom_type_script = "uid://40yovr3lwytr"
 
@@ -131,6 +138,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/PlayButton" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/MultiplayerButton" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/DecksButton" to="." method="_on_decks_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
