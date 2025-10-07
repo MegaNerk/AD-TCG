@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh7g5mduvcoqq"]
+
+[ext_resource type="Script" uid="uid://cn38bthaqumho" path="res://Project/Systems/Out of Game/Server Browser/Steam Lobby/Player Entry/player_entry.gd" id="1_qwcdc"]
+[ext_resource type="StyleBox" uid="uid://1wl2vjnpm0f2" path="res://Project/Systems/Global Systems/Style Boxes/Panels/ui_outline.tres" id="2_ciinf"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="3_40mxs"]
+[ext_resource type="Texture2D" uid="uid://ds8ccjs5yrtmt" path="res://Data/Assets/Art/KennysIcons/crown_a.png" id="4_0j3mj"]
+
+[node name="PlayerEntry" type="Control" node_paths=PackedStringArray("player_name_label", "promote_button", "kick_button", "actions", "crown_sprite")]
+custom_minimum_size = Vector2(625, 215)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qwcdc")
+player_name_label = NodePath("Panel/MarginContainer/VBoxContainer/Label")
+promote_button = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/PromoteButton")
+kick_button = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer/KickButton")
+actions = NodePath("Panel/MarginContainer/VBoxContainer/HBoxContainer")
+crown_sprite = NodePath("CrownSprite")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_ciinf")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Player Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="PromoteButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+text = "Make Host"
+script = ExtResource("3_40mxs")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="KickButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+text = "Kick"
+script = ExtResource("3_40mxs")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="CrownSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(558, 60)
+scale = Vector2(0.573242, 0.573242)
+texture = ExtResource("4_0j3mj")

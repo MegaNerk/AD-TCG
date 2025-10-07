@@ -1,0 +1,343 @@
+[gd_scene load_steps=6 format=3 uid="uid://dih01sq4porrh"]
+
+[ext_resource type="PackedScene" uid="uid://ecsh4ny3ln4v" path="res://Project/Systems/Out of Game/Lobby Background/lobby_background.tscn" id="1_6grmi"]
+[ext_resource type="Script" uid="uid://bb4rwvg5ode07" path="res://Project/Systems/Out of Game/Server Browser/Steam Lobby/steam_lobby.gd" id="1_ap66m"]
+[ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="2_is8b6"]
+[ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="3_ap66m"]
+[ext_resource type="PackedScene" uid="uid://bh7g5mduvcoqq" path="res://Project/Systems/Out of Game/Server Browser/Steam Lobby/Player Entry/player_entry.tscn" id="4_is8b6"]
+
+[node name="SteamLobby" type="Control" node_paths=PackedStringArray("lobby_name", "mode", "player_max", "spec_max", "pass_check", "password", "join_players", "join_spec", "close_lobby", "leave_lobby")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ap66m")
+lobby_name = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/LobbyName")
+mode = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer/Mode")
+player_max = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer2/MaxPlayers")
+spec_max = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer3/MaxSpec")
+pass_check = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4/PassCheck")
+password = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4/Password")
+join_players = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel/HBoxContainer/JoinPlayers")
+join_spec = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel/HBoxContainer/JoinSpec")
+close_lobby = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/CloseLobby")
+leave_lobby = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/LeaveLobby")
+
+[node name="LobbyBackground" parent="." instance=ExtResource("1_6grmi")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LobbyName" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Lobby Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Players" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Players - 0/0"
+horizontal_alignment = 1
+
+[node name="JoinPlayers" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Join Players"
+script = ExtResource("3_ap66m")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_is8b6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="PlayerEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry4" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spectators" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Spectators - 0/0"
+horizontal_alignment = 1
+
+[node name="JoinSpec" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Join Spectators"
+script = ExtResource("3_ap66m")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_is8b6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="PlayerEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="PlayerEntry4" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
+visible = false
+layout_mode = 2
+player_name = ""
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Mode:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+selected = 0
+fit_to_longest_item = false
+item_count = 2
+popup/item_0/text = "Default Mode"
+popup/item_0/id = 0
+popup/item_1/text = "Alternative Mode"
+popup/item_1/id = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Max Players:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxPlayers" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "2"
+popup/item_0/id = 0
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Max Spectators:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxSpec" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "0"
+popup/item_0/id = 4
+popup/item_1/text = "1"
+popup/item_1/id = 3
+popup/item_2/text = "2"
+popup/item_2/id = 0
+popup/item_3/text = "3"
+popup/item_3/id = 1
+popup/item_4/text = "4"
+popup/item_4/id = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PassCheck" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme_override_font_sizes/font_size = 48
+button_pressed = true
+text = "Password"
+alignment = 1
+
+[node name="Password" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+placeholder_text = "Password"
+
+[node name="CloseLobby" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Close Lobby"
+script = ExtResource("3_ap66m")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[node name="LeaveLobby" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Leave Lobby"
+script = ExtResource("3_ap66m")
+metadata/_custom_type_script = "uid://40yovr3lwytr"
