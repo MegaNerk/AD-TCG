@@ -138,6 +138,8 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/MultiplayerButton" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/SingleplayerButton" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/MultiplayerButton" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/DecksButton" to="." method="_on_decks_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Middle/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

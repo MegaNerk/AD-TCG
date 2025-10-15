@@ -1,16 +1,23 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://e6ink1u0w5k1"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://e6ink1u0w5k1"]
 
 [ext_resource type="StyleBox" uid="uid://dthx5sdffimru" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_normal.tres" id="1_7pt70"]
 [ext_resource type="StyleBox" uid="uid://coj1b4scfjvhq" path="res://Project/Systems/Global Systems/Style Boxes/style_box_empty.tres" id="1_l6yet"]
 [ext_resource type="StyleBox" uid="uid://d1epr6xhmu0oo" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_hovered.tres" id="2_dgj3f"]
 [ext_resource type="FontFile" uid="uid://ctul4srh4s6l5" path="res://Project/Systems/Global Systems/Fonts/Exo2-RegularCondensed.otf" id="2_lroo1"]
 [ext_resource type="StyleBox" uid="uid://cc5mcu7gre2nx" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_pressed.tres" id="3_l6yet"]
+[ext_resource type="StyleBox" uid="uid://vno8osygjdnu" path="res://Project/Systems/Global Systems/Style Boxes/Buttons/default_button_pressed_hovered.tres" id="3_lqk0t"]
 [ext_resource type="StyleBox" uid="uid://cgx37wt70wmxu" path="res://Project/Systems/Global Systems/Style Boxes/Labels/major_label.tres" id="5_1fyfa"]
 [ext_resource type="Texture2D" uid="uid://dpys1uc8ydy3" path="res://Data/Assets/Art/KennysIcons/lock_closed.png" id="5_87hqd"]
 [ext_resource type="StyleBox" uid="uid://h8n1pg3uacqk" path="res://Project/Systems/Global Systems/Style Boxes/Panels/default_panel.tres" id="6_1fyfa"]
 [ext_resource type="Texture2D" uid="uid://c4gimrgnujt3" path="res://Data/Assets/Art/KennysIcons/lock_open.png" id="6_lqk0t"]
 [ext_resource type="StyleBox" uid="uid://dfnxsdqespj4s" path="res://Project/Systems/Global Systems/Style Boxes/Panels/dark_stone_plate.tres" id="7_mxnf0"]
 [ext_resource type="StyleBox" uid="uid://cb01ye2bk48f" path="res://Project/Systems/Global Systems/Style Boxes/Panels/stone_panel_no_shadow.tres" id="8_87hqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqk0t"]
+content_margin_left = 25.0
+content_margin_top = 5.0
+content_margin_right = 25.0
+content_margin_bottom = 5.0
 
 [sub_resource type="GDScript" id="GDScript_l6yet"]
 
@@ -22,13 +29,16 @@ Button/constants/outline_size = 5
 Button/font_sizes/font_size = 48
 Button/styles/focus = ExtResource("1_l6yet")
 Button/styles/hover = ExtResource("2_dgj3f")
+Button/styles/hover_pressed = ExtResource("3_lqk0t")
 Button/styles/normal = ExtResource("1_7pt70")
 Button/styles/pressed = ExtResource("3_l6yet")
 CheckBox/icons/checked = ExtResource("5_87hqd")
 CheckBox/icons/unchecked = ExtResource("6_lqk0t")
 Label/constants/outline_size = 5
 Label/styles/normal = ExtResource("5_1fyfa")
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
 LineEdit/styles/normal = ExtResource("5_1fyfa")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_lqk0t")
 MarginContainer/constants/margin_bottom = 25
 MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25

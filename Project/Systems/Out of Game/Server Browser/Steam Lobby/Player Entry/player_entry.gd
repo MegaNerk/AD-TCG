@@ -31,3 +31,6 @@ extends Node
 @export var kick_button : AD_Button
 @export var actions : HBoxContainer
 @export var crown_sprite : Sprite2D
+
+signal kick_order(player_ref)
+signal promote_order(player_ref)

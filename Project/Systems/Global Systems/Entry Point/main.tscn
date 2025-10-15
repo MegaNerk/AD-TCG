@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://6inqgjj50jtg"]
+[gd_scene load_steps=6 format=3 uid="uid://6inqgjj50jtg"]
 
 [ext_resource type="Script" uid="uid://d3d4wmhje6wvn" path="res://Project/Systems/Global Systems/Entry Point/main.gd" id="1_vk2mc"]
 [ext_resource type="PackedScene" uid="uid://c5gm6dqhgba8a" path="res://Project/Systems/Out of Game/Main Menu/main_menu.tscn" id="2_d0jyx"]
 [ext_resource type="PackedScene" uid="uid://citbsv3phdp37" path="res://Project/Systems/Out of Game/Deck Viewer/deck_viewer.tscn" id="3_mrhy5"]
+[ext_resource type="PackedScene" uid="uid://drv6n1s3htx6m" path="res://Project/Systems/Out of Game/Server Browser/server_browser.tscn" id="4_sq53x"]
+[ext_resource type="PackedScene" uid="uid://dih01sq4porrh" path="res://Project/Systems/Out of Game/Server Browser/Steam Lobby/steam_lobby.tscn" id="5_1qdvo"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -18,4 +20,10 @@ script = ExtResource("1_vk2mc")
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_d0jyx")]
 
 [node name="DeckViewer" parent="CanvasLayer" instance=ExtResource("3_mrhy5")]
+visible = false
+
+[node name="ServerBrowser" parent="CanvasLayer" instance=ExtResource("4_sq53x")]
+visible = false
+
+[node name="SteamLobby" parent="CanvasLayer" instance=ExtResource("5_1qdvo")]
 visible = false

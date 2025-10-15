@@ -185,7 +185,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="AD_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
+[node name="CreateButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Create Lobby"
 script = ExtResource("5_hxr5i")
@@ -206,7 +206,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel2/MarginContainer"]
 layout_mode = 2
 
-[node name="AD_Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Back"
 script = ExtResource("5_hxr5i")
@@ -216,3 +216,6 @@ metadata/_custom_type_script = "uid://40yovr3lwytr"
 visible = false
 layout_mode = 1
 prompt_text = "Join [Server Name]?"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/CreateButton" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/BackButton" to="." method="_on_back_pressed"]

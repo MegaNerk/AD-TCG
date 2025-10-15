@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ap66m")
+player_entry_scene = ExtResource("4_is8b6")
 lobby_name = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Panel/MarginContainer/LobbyName")
 mode = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer/Mode")
 player_max = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer2/MaxPlayers")
@@ -118,26 +119,6 @@ theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 2
 
-[node name="PlayerEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry4" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -193,26 +174,6 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 2
-
-[node name="PlayerEntry" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
-
-[node name="PlayerEntry4" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("4_is8b6")]
-visible = false
-layout_mode = 2
-player_name = ""
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -341,3 +302,6 @@ theme_override_font_sizes/font_size = 64
 text = "Leave Lobby"
 script = ExtResource("3_ap66m")
 metadata/_custom_type_script = "uid://40yovr3lwytr"
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4/PassCheck" to="." method="on_password_toggled"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/LeaveLobby" to="." method="on_leave_lobby_pressed"]
