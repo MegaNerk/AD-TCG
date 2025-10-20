@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://40yovr3lwytr" path="res://Project/Systems/Global Systems/UI/AD Button/ad_button.gd" id="3_ap66m"]
 [ext_resource type="PackedScene" uid="uid://bh7g5mduvcoqq" path="res://Project/Systems/Out of Game/Server Browser/Steam Lobby/Player Entry/player_entry.tscn" id="4_is8b6"]
 
-[node name="SteamLobby" type="Control" node_paths=PackedStringArray("lobby_name", "mode", "player_max", "spec_max", "pass_check", "password", "join_players", "join_spec", "close_lobby", "leave_lobby")]
+[node name="SteamLobby" type="Control" node_paths=PackedStringArray("lobby_name", "mode", "player_max", "spec_max", "pass_check", "password", "join_players", "join_spec", "close_lobby_button", "leave_lobby_button", "player_container", "spec_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,8 +23,10 @@ pass_check = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/Margin
 password = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/VBoxContainer4/Password")
 join_players = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel/HBoxContainer/JoinPlayers")
 join_spec = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel/HBoxContainer/JoinSpec")
-close_lobby = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/CloseLobby")
-leave_lobby = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/LeaveLobby")
+close_lobby_button = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/Panel/MarginContainer/VBoxContainer/CloseLobby")
+leave_lobby_button = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/LeaveLobby")
+player_container = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer/PlayerContainer")
+spec_container = NodePath("MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer/SpecContainer")
 
 [node name="LobbyBackground" parent="." instance=ExtResource("1_6grmi")]
 layout_mode = 1
@@ -111,7 +113,7 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer"]
+[node name="PlayerContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Panel2/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -167,7 +169,7 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer"]
+[node name="SpecContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Panel2/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

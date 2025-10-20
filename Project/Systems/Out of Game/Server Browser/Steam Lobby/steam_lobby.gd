@@ -12,12 +12,21 @@ signal leave_pressed
 
 @export var join_players : AD_Button
 @export var join_spec : AD_Button
-@export var close_lobby : AD_Button
-@export var leave_lobby : AD_Button
+@export var close_lobby_button : AD_Button
+@export var leave_lobby_button : AD_Button
 
-#region External Signal Connections
+@export var player_container : GridContainer
+@export var spec_container : GridContainer
 
-#endregion
+var player_list : Array = []
+
+#region Lobby Management
+func create_lobby():
+	NETWORK.create_lobby()
+
+func close_lobby():
+	pass
+#endregion Lobby Management
 
 #region Internal Signal Connections
 func on_password_toggled(new_state):
@@ -31,4 +40,19 @@ func on_join_spec_pressed():
 
 func on_leave_lobby_pressed():
 	emit_signal("leave_pressed")
+	NETWORK.leave_lobby()
 #endregion Signal Connections
+
+#region Player Management
+func move_to_players(player_ref):
+	pass
+
+func move_to_spec(player_ref):
+	pass
+
+func kick_player(player_ref):
+	pass
+
+func promote_player(player_ref):
+	pass
+#endregion Player Management

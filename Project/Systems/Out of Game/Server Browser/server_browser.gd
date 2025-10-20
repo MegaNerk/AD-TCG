@@ -7,6 +7,7 @@ func _on_back_pressed():
 
 func _on_create_pressed():
 	emit_signal("create_pressed")
+	NETWORK.create_lobby()
 
 func _on_server_clicked(server_ref):
 	pass
