@@ -15,7 +15,7 @@ func _ready():
 	main_menu.multiplayer_pressed.connect(_open_server_browser)
 	deck_viewer.back_pressed.connect(_open_main_menu)
 	server_browser.back_pressed.connect(_open_main_menu)
-	server_browser.create_pressed.connect(_open_steam_lobby)
+	NETWORK.joined_steam_lobby.connect(_open_steam_lobby)
 	steam_lobby.leave_pressed.connect(_open_server_browser)
 
 func _open_decks():

@@ -20,6 +20,9 @@ signal leave_pressed
 
 var player_list : Array = []
 
+func _ready():
+	pass
+
 #region Lobby Management
 func create_lobby():
 	NETWORK.create_lobby()
@@ -41,7 +44,15 @@ func on_join_spec_pressed():
 func on_leave_lobby_pressed():
 	emit_signal("leave_pressed")
 	NETWORK.leave_lobby()
-#endregion Signal Connections
+#endregion Internal Signal Connections
+
+#region External Signal Connections
+func _on_created_steam_lobby():
+	pass
+
+func _on_joined_steam_lobby():
+	pass
+#endregion External Signal Connections
 
 #region Player Management
 func move_to_players(player_ref):

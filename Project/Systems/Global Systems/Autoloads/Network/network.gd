@@ -1,6 +1,7 @@
 extends Node
 
 signal steam_state_changed(new_state : Dictionary)
+signal joined_steam_lobby
 
 const PACKET_READ_LIMIT : int = 32
 
@@ -96,6 +97,16 @@ func _on_lobby_created(status : int, new_lobby_id : int):
 		lobby_data["id"] = new_lobby_id
 		print("Successfully created lobby with ID: %s" %new_lobby_id)
 		
+		Steam.setLobbyData(lobby_data["id"], "lobby_name", "%s's Lobby" %user_data["name"])
+		Steam.setLobbyData(lobby_data["id"], "gamemode", "Default")
+		Steam.setLobbyData(lobby_data["id"], "player_max", "4")
+		Steam.setLobbyData(lobby_data["id"], "spec_max", "4")
+		Steam.setLobbyData(lobby_data["id"], "player_num", "1")
+		Steam.setLobbyData(lobby_data["id"], "spec_num", "0")
+		Steam.setLobbyData(lobby_data["id"], "password_locked", "yes")
+		Steam.setLobbyData(lobby_data["id"], "host_name", user_data["name"])
+		
+		emit_signal("joined_steam_lobby")
 		#Establish steam as a backup packet relay in case of firewall issues
 		var relay_active : bool = Steam.allowP2PPacketRelay(true)
 		print("Packet relay backup status: %s" %relay_active)
@@ -109,6 +120,7 @@ func _on_lobby_invite():
 
 func _on_lobby_joined():
 	sync_lobby_members()
+	emit_signal("joined_steam_lobby")
 
 func _on_lobby_match_list():
 	pass
